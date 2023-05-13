@@ -1,0 +1,273 @@
+/* 
+    Estilo prinipal de los componentes de la aplicación
+    Author     : Nuria Vázquez  
+*/
+
+/* Define el fondo de la página web en blanco y el tipo de letra a utilizar */
+.root {
+    -fx-background-color: white;
+    -fx-font-family: Arial;
+    -fx-text-fill: #43BCCD;
+}
+
+/* Estilo para un botón de perfil. Incluye sombra, color de fondo, color de 
+   texto, tamaño, ancho y alto preferido, grosor de borde y cursor. */
+.btn_perfil{
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, #707070, 10, 0, 0, 0);
+    -fx-text-fill: #43BCCD;
+    -fx-font-size: 14px;
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+    -fx-border-width: 0;
+    -fx-cursor: HAND;
+}
+
+/* Estilo de botón de perfil al pasar el cursor sobre él. Incluye un cambio de 
+   color de fondo y texto. */
+.btn_perfil:hover {
+    -fx-background-color: #43BCCD;
+    -fx-text-fill: white;
+}
+
+/* Estilo de botón de perfil al presionarlo. Incluye un cambio en el color de 
+   fondo, el color de texto y la escala del botón. */
+.btn_perfil:pressed {
+    -fx-background-color: #43BCCD;
+    -fx-text-fill: white;
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+/* Estilo para un botón de perfil en un informe. Incluye sombra, color de fondo, 
+   color de texto, tamaño, ancho y alto preferido, grosor de borde y cursor. */
+.btn_perfil_informe{
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, #707070, 10, 0, 0, 0);
+    -fx-text-fill: #43BCCD;
+    -fx-font-size: 14px;
+    -fx-pref-width: 140px;
+    -fx-pref-height: 40px;
+    -fx-border-width: 0;
+    -fx-cursor: HAND;
+}
+
+/* Estilo de botón de perfil en un informe al pasar el cursor sobre él. Incluye 
+   un cambio de color de fondo y texto. */
+.btn_perfil_informe:hover {
+    -fx-background-color: #43BCCD;
+    -fx-text-fill: white;
+}
+
+/* Estilo de botón de perfil en un informe al presionarlo. Incluye un cambio en 
+   el color de fondo, el color de texto y la escala del botón. */
+.btn_perfil_informe:pressed {
+    -fx-background-color: #43BCCD;
+    -fx-text-fill: white;
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+/* Estilo para un texto de logo. Incluye el color del texto y el tamaño de fuente. */
+.texto_logo{
+    -fx-text-fill: #43BCCD;
+    -fx-font-size: 40;
+}
+
+/* Clase para la clase que define el color de texto, estilo de fuente y tamaño de fuente */
+.texto_logo2{
+    -fx-text-fill: #43BCCD;
+    -fx-font-style: italic;
+    -fx-font-size: 18;
+}
+
+/* Estilo para crear un panel con sombra y fondo gris claro */
+.panel{
+    -fx-effect: dropshadow(three-pass-box, #707070, 10, 0, 0, 0);
+    -fx-background-color: #FAFAFA;
+}
+
+/* Estilo para crear un campo de texto con ancho y alto prefijados */
+.text_field{
+    -fx-pref-width: 200px;
+    -fx-pref-height: 40px;
+}
+
+/* Estilo para crear un campo de texto con estilo de foco */
+.text_field:focused{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #43BCCD;
+    -fx-border-width: 2px;
+}
+
+/* Estilo para los campos de texto pequeños */
+.text_field_small{
+    -fx-pref-width: 200px;
+    -fx-pref-height: 30px;
+}
+
+/* Estilo para el campo de texto pequeño cuando está enfocado */
+.text_field_small:focused{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #43BCCD;
+    -fx-border-width: 2px;
+}
+
+
+/* Estilo para el botón de mostrar contraseña */
+.mostrar_password{
+    -fx-text-fill: #43BCCD;
+    -fx-background-color: transparent;
+    -fx-border-width: 1px 1px 1px 1px;
+    -fx-border-color: #43BCCD;
+    -fx-cursor: HAND;
+}
+
+/* Estilo para el botón de mostrar contraseña seleccionado */
+.mostrar_password:selected{
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #43BCCD;
+    -fx-cursor: HAND;
+}
+
+/* Estilo para el icono de login */
+.icono_login{
+    -fx-background-color: #43BCCD;
+}
+
+/* Estilo para el título de login */
+.titulo_login{
+    -fx-font-family: Arial;
+    -fx-text-fill: #43BCCD;
+    -fx-letter-spacing: 5;
+    -fx-font-size: 20pt;
+}
+
+/* Estilo para el botón de login */
+.btn_login{
+    -fx-background-color: #43BCCD;
+    -fx-effect: dropshadow(three-pass-box, #707070, 10, 0, 0, 0);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+    -fx-border-width: 0;
+    -fx-cursor: HAND;
+}
+
+/* Estilo para el botón de login cuando se posiciona sobre él */
+.btn_login:hover {
+    -fx-background-color: #43BCCD;
+    -fx-text-fill: white;
+}
+
+/* Estilo para el botón de login cuando se presiona */
+.btn_login:pressed {
+    -fx-background-color: #43BCCD;
+    -fx-text-fill: white;
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+/* Estilo para el logo de tablas */
+.logo_tablas{
+    -fx-min-width: 80px;
+    -fx-min-height: 80px;
+}
+
+/* Estilo para la barra de menú */
+.menu_bar{
+    -fx-text-fill: #43BCCD;
+    -fx-background-color: transparent;
+    -fx-border-width: 1px 1px 1px 1px;
+    -fx-border-color: #43BCCD;
+    -fx-cursor: HAND;
+}
+/* Estilos para un rectángulo con sombra */
+.rectangulo{
+    -fx-fill: #43BCCD;
+    -fx-effect: dropshadow(three-pass-box, #707070, 0, 0, 0, 1);
+    -fx-stroke: null;
+
+}
+
+/* Estilo para un menú desplegable en hover o mostrándose */
+.menu:hover, .menu:showing{
+    -fx-background-color: #43BCCD;
+    -fx-cursor: HAND;
+}
+
+
+/* Estilo para un ítem de menú enfocado */
+.menu_item:focused{
+    -fx-background-color: #43BCCD;
+    -fx-cursor: HAND;
+}
+
+/* Estilo para una tabla de datos con borde */
+.tabla_datos{
+    -fx-border-color: #43BCCD;
+}
+
+/* Estilo para el fondo de una tabla */
+.fondo_tabla{
+    -fx-fill: #FAFAFA;
+    -fx-effect: dropshadow(three-pass-box, #707070, 0, 0, 0, 1);
+    -fx-stroke: null;
+}
+
+/* Estilo para un label de texto */
+.label_texto{
+    -fx-text-fill: #43BCCD;
+    -fx-font-size: 20px;
+}
+
+/* Estilo para un text field enfocado */
+.text_field2:focused{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #43BCCD;
+    -fx-border-width: 2px;
+}
+
+/* Estilo para un DatePicker de fecha de nacimiento */
+.data_pickerFechaNac{
+    -fx-pref-width: 120px;
+    -fx-pref-height: 30px;
+}
+
+/* Estilo para un ComboBox de citas */
+.comboBoxCita{
+    -fx-pref-width: 70px;
+    -fx-pref-height: 30px;
+}
+
+/* Estilo para un ComboBox de sexo */
+.comboBoxSex{
+    -fx-pref-width: 120px;
+    -fx-pref-height: 30px;
+}
+
+/* Estilo para un ComboBox de suscripción */
+.comboBoxSuscripcion{
+    -fx-pref-width: 60px;
+    -fx-pref-height: 30px;
+}
+
+/* Estilo para un texto de suscripción */
+.text_Suscripcion{
+    -fx-font-size: 14;
+    -fx-text-fill: #43BCCD;
+}
+
+/* Estilo para un text field de DNI de cliente */
+.text_field_dniCliente{
+    -fx-pref-width: 150px;
+    -fx-pref-height: 30px;
+}
+
+/* Estilo para un text field de DNI de cliente enfocado */
+.text_field_dniCliente:focused{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #43BCCD;
+    -fx-border-width: 2px;
+}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toc SYSTEM "http://java.sun.com/dtd/TOC.dtd">
+<toc>
+    <tocitem text="Selección de perfil">
+        <tocitem text="Perfil director" target="perfildirector" />
+        <tocitem text="Perfil recepcionista" target="perfilrecepcionista" />
+    </tocitem>
+    <tocitem text="Login">
+        <tocitem text="Login director" target="logindirector" />
+        <tocitem text="Login recepcionista" target="loginrecepcionista" />
+    </tocitem>
+    <tocitem text="Dirección">
+        <tocitem text="Dirección" target="direccion" />
+    </tocitem>
+    <tocitem text="Recepción">
+        <tocitem text="Recepción" target="recepcion" />
+    </tocitem>
+    <tocitem text="Funcionalidades">
+        <tocitem text="Agregar" target="agregar" />
+        <tocitem text="Buscar" target="buscar" />
+        <tocitem text="Eliminar" target="eliminar" />
+        <tocitem text="Listar" target="listar" />
+        <tocitem text="Modificar" target="modificar" />
+    </tocitem>
+    <tocitem text="Mascotas">
+        <tocitem text="Agregar mascotas" target="agregarmascotas" />
+        <tocitem text="Buscar mascotas" target="buscarmascotas" />
+        <tocitem text="Eliminar mascotas" target="eliminarmascotas" />
+        <tocitem text="Listar mascotas" target="listarmascotas" />
+        <tocitem text="Modificar mascotas" target="modificarmascotas" />
+        <tocitem text="Informe mascotas" target="informemascotas" />
+    </tocitem>
+    <tocitem text="Clientes">
+        <tocitem text="Agregar clientes" target="agregarclientes" />
+        <tocitem text="Buscar clientes" target="buscarclientes" />
+        <tocitem text="Eliminar clientes" target="eliminarclientes" />
+        <tocitem text="Listar clientes" target="listarclientes" />
+        <tocitem text="Modificar clientes" target="modificarclientes" />
+        <tocitem text="Informe clientes" target="informeclientes" />
+    </tocitem>
+    <tocitem text="Veterinarios">
+        <tocitem text="Agregar veterinarios" target="agregarveterinarios" />
+        <tocitem text="Buscar veterinarios" target="buscarveterinarios" />
+        <tocitem text="Eliminar veterinarios" target="eliminarveterinarios" />
+        <tocitem text="Listar veterinarios" target="listarveterinarios" />
+        <tocitem text="Modificar veterinarios" target="modificarveterinarios" />
+        <tocitem text="Informe veterinarios" target="informeveterinarios" />
+    </tocitem>
+    <tocitem text="Auxiliares">
+        <tocitem text="Agregar auxiliares" target="agregarauxiliares" />
+        <tocitem text="Buscar auxiliares" target="buscarauxiliares" />
+        <tocitem text="Eliminar auxiliares" target="eliminarauxiliares" />
+        <tocitem text="Listar auxiliares" target="listarauxiliares" />
+        <tocitem text="Modificar auxiliares" target="modificarauxiliares" />
+        <tocitem text="Informe auxiliares" target="informeauxiliares" />
+    </tocitem>
+    <tocitem text="Recepcionistas">
+        <tocitem text="Agregar recepcionistas" target="agregarrecepcionistas" />
+        <tocitem text="Buscar recepcionistas" target="buscarrecepcionistas" />
+        <tocitem text="Eliminar recepcionistas" target="eliminarrecepcionistas" />
+        <tocitem text="Listar recepcionistas" target="listarrecepcionistas" />
+        <tocitem text="Modificar recepcionistas" target="modificarrecepcionistas" />
+        <tocitem text="Informe recepcionistas" target="informerecepcionistas" />
+    </tocitem>
+   <tocitem text="Citas">
+        <tocitem text="Agregar citas" target="agregarcitas" />
+        <tocitem text="Buscar citas" target="buscarcitas" />
+        <tocitem text="Eliminar citas" target="eliminarcitas" />
+        <tocitem text="Listar citas" target="listarcitas" />
+        <tocitem text="Modificar citas" target="modificarcitas" />
+        <tocitem text="Informe citas" target="informecitas" />
+    </tocitem>
+    <tocitem text="Factura">
+        <tocitem text="Generar facturas" target="generarfacturas" />
+    </tocitem>
+</toc>

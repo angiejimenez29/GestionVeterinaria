@@ -1,0 +1,98 @@
+<index version="1.0">
+    <indexitem text="Selección de perfil">
+        <subindex>
+            <indexitem text="Perfil director" target="perfildirector" />
+            <indexitem text="Perfil recepcionista" target="perfilrecepcionista" />
+        </subindex>
+    </indexitem>
+    <indexitem text="Login">
+        <subindex>
+            <indexitem text="Login director" target="logindirector" />
+            <indexitem text="Login recepcionista" target="loginrecepcionista" />
+        </subindex>
+    </indexitem>
+    <indexitem text="Dirección">
+        <subindex>
+            <indexitem text="Dirección" target="direccion" />
+        </subindex>
+    </indexitem>
+    <indexitem text="Recepción">
+        <subindex>
+            <indexitem text="Recepción" target="recepcion" />
+        </subindex>
+    </indexitem>
+    <indexitem text="Funcionalidades">
+        <subindex>
+            <indexitem text="Agregar" target="agregar" />
+            <indexitem text="Buscar" target="buscar" />
+            <indexitem text="Eliminar" target="eliminar" />
+            <indexitem text="Listar" target="listar" />
+            <indexitem text="Modificar" target="modificar" />
+        </subindex>
+    </indexitem>
+    <indexitem text="Mascotas">
+        <subindex>
+            <indexitem text="Agregar mascotas" target="agregarmascotas" />
+            <indexitem text="Buscar mascotas" target="buscarmascotas" />
+            <indexitem text="Eliminar mascotas" target="eliminarmascotas" />
+            <indexitem text="Listar mascotas" target="listarmascotas" />
+            <indexitem text="Modificar mascotas" target="modificarmascotas" />
+            <indexitem text="Informe mascotas" target="informemascotas" />
+        </subindex>
+    </indexitem>
+    <indexitem text="Clientes">
+        <subindex>
+            <indexitem text="Agregar clientes" target="agregarclientes" />
+            <indexitem text="Buscar clientes" target="buscarclientes" />
+            <indexitem text="Eliminar clientes" target="eliminarclientes" />
+            <indexitem text="Listar clientes" target="listarclientes" />
+            <indexitem text="Modificar clientes" target="modificarclientes" />
+            <indexitem text="Informe clientes" target="informeclientes" />
+        </subindex>
+    </indexitem>
+    <indexitem text="Veterinarios">
+        <subindex>
+            <indexitem text="Agregar veterinarios" target="agregarveterinarios" />
+            <indexitem text="Buscar veterinarios" target="buscarveterinarios" />
+            <indexitem text="Eliminar veterinarios" target="eliminarveterinarios" />
+            <indexitem text="Listar veterinarios" target="listarveterinarios" />
+            <indexitem text="Modificar veterinarios" target="modificarveterinarios" />
+            <indexitem text="Informe veterinarios" target="informeveterinarios" />
+        </subindex>
+    </indexitem>
+    <indexitem text="Auxiliares">
+        <subindex>
+            <indexitem text="Agregar auxiliares" target="agregarauxiliares" />
+            <indexitem text="Buscar auxiliares" target="buscarauxiliares" />
+            <indexitem text="Eliminar auxiliares" target="eliminarauxiliares" />
+            <indexitem text="Listar auxiliares" target="listarauxiliares" />
+            <indexitem text="Modificar auxiliares" target="modificarauxiliares" />
+            <indexitem text="Informe auxiliares" target="informeauxiliares" />
+        </subindex>
+    </indexitem>
+    <indexitem text="Recepcionistas">
+        <subindex>
+            <indexitem text="Agregar recepcionistas" target="agregarrecepcionistas" />
+            <indexitem text="Buscar recepcionistas" target="buscarrecepcionistas" />
+            <indexitem text="Eliminar recepcionistas" target="eliminarrecepcionistas" />
+            <indexitem text="Listar recepcionistas" target="listarrecepcionistas" />
+            <indexitem text="Modificar recepcionistas" target="modificarrecepcionistas" />
+            <indexitem text="Informe recepcionistas" target="informerecepcionistas" />
+        </subindex>
+    </indexitem>
+    <indexitem text="Citas">
+        <subindex>
+            <indexitem text="Agregar citas" target="agregarcitas" />
+            <indexitem text="Buscar citas" target="buscarcitas" />
+            <indexitem text="Eliminar citas" target="eliminarcitas" />
+            <indexitem text="Listar citas" target="listarcitas" />
+            <indexitem text="Modificar citas" target="modificarcitas" />
+            <indexitem text="Informe citas" target="informecitas" />
+        </subindex>
+    </indexitem>
+    <indexitem text="Factura">
+        <subindex>
+            <indexitem text="Generar facturas" target="generarfacturas" />
+        </subindex>
+    </indexitem>
+</index>

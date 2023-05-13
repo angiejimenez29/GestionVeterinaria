@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.1.final using JasperReports Library version 6.20.1-7584acb244139816654f64e2fd57a00d3e31921e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Invoice_Table_Based" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+	<property name="template.engine" value="tabular_template"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#EEEFF0"/>
+		</conditionalStyle>
+	</style>
+	<style name="Table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="tableDataset" uuid="50f375dc-c214-43a5-837f-521b46a5b894">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nombreCliente" class="java.lang.String"/>
+	<field name="apellidoUnoCliente" class="java.lang.String"/>
+	<field name="apellidoDosCliente" class="java.lang.String"/>
+	<field name="precio" class="java.math.BigDecimal"/>
+	<field name="fechaCita" class="java.util.Date"/>
+	<field name="horaCita" class="java.sql.Time"/>
+	<field name="dniCliente" class="java.lang.String"/>
+	<field name="nombreVeterinario" class="java.lang.String"/>
+	<field name="apellidoUnoVeterinario" class="java.lang.String"/>
+	<field name="apellidoDosVeterinario" class="java.lang.String"/>
+	<field name="nombreMascota" class="java.lang.String"/>
+	<field name="tipoConsulta" class="java.lang.String"/>
+	<field name="diagnostico" class="java.lang.String"/>
+	<field name="tratamiento" class="java.lang.String"/>
+	<field name="medicacion" class="java.lang.String"/>
+	<title>
+		<band height="196" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="73" width="178" height="25" uuid="57aed2b1-4f4e-40a3-a6ad-54dae8dd4c5a">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Factura para el cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="113" width="40" height="15" uuid="33274f5d-5b7e-4be2-a2ff-65d452a618ed"/>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="66" width="556" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="128" width="60" height="15" uuid="1d3045ed-03d6-4253-a959-aeeb491b73ca"/>
+				<text><![CDATA[1º Apellido:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="143" width="70" height="15" uuid="235bf8b6-1e1e-49c7-b59f-7a46c30b8209">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<text><![CDATA[2º Apellido:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="405" y="10" width="50" height="20" uuid="0f86baff-6386-4f3f-b3fe-2388707babe8"/>
+				<box rightPadding="4"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="0" width="315" height="30" uuid="e622555d-198b-4ccd-a4a1-c59c53304058">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Intelipet]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="30" width="315" height="30" uuid="e152b235-a94b-4605-a85a-e28e61e55586">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Factura Clínica veterinaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="158" width="34" height="15" uuid="c52f10c8-f430-45db-b154-7f2171291701"/>
+				<text><![CDATA[Precio:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="190" width="556" height="1" uuid="5903bba0-077c-4843-be0d-eb055d469a88">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<textField>
+				<reportElement x="40" y="113" width="58" height="15" uuid="dec844a6-2891-4fc7-bc4c-727151d071c4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nombreCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="128" width="90" height="15" uuid="cd483a00-56c5-4116-bd97-2399157c8eb6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{apellidoUnoCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="143" width="140" height="15" uuid="4709e679-3099-44f1-ae90-a985e6a7f52c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{apellidoDosCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="158" width="98" height="15" uuid="93b343ba-acb4-4302-9a3b-7ad21081d5ed">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="98" width="19" height="15" uuid="b1aa878b-027d-40a2-a025-57ca5d5f9c4c"/>
+				<text><![CDATA[Dni:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="19" y="98" width="100" height="15" uuid="dfae25da-48db-4b28-8bf6-ead4b162bb5c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{dniCliente}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="455" y="10" width="100" height="20" uuid="1c1eadbc-4db1-4354-a551-c4983e66bd97"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<summary>
+		<band height="360" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="330" width="556" height="30" backcolor="#E6E8E9" uuid="36aa233d-4305-48e6-974a-1bbf89bb3c8f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[GRACIAS POR CONFIAR EN NOSOTROS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="-1" width="210" height="25" uuid="b14365de-2fb5-4658-8fe5-7858d786eb1e">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datos de la Cita:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="103" width="210" height="25" uuid="70bf8220-d8ac-4191-bc53-fac1bc10886c">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datos de la mascota:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="24" width="34" height="15" uuid="f083f843-3d30-4369-87f0-31948bce9126"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="34" y="24" width="54" height="15" uuid="dbd59ffa-caee-4c82-9323-113190b34dfb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd-MM-yyyy").format($F{fechaCita})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="39" width="30" height="15" uuid="2bb5f8f2-8c03-497a-b8e8-7d2e7bdc1ae1"/>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="39" width="90" height="15" uuid="f9e02020-a2af-47e3-8173-dbe2b7760778">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{horaCita} != null ? new SimpleDateFormat("HH:mm").format($F{horaCita}) : ""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="54" width="70" height="15" uuid="77ce7ddc-07aa-463e-b4a6-99d670dc5eb5"/>
+				<text><![CDATA[N. Veterinario:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="54" width="260" height="15" uuid="e2c72686-62c0-4311-87aa-76e8966e78da">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nombreVeterinario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="69" width="60" height="15" uuid="85bc30f6-67f8-4bc6-a548-5a0e4aaa3cf2"/>
+				<text><![CDATA[1º Apellido:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="69" width="270" height="15" uuid="5bfae61b-229e-4b35-80b0-dfa92209fc9c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{apellidoUnoVeterinario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="84" width="60" height="15" uuid="4ccdb94a-8d85-4885-ab81-cfadcb587939"/>
+				<text><![CDATA[2º Apellido:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="84" width="270" height="15" uuid="024b2a13-7b68-4ad1-bc22-6a0a86ff500d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{apellidoDosVeterinario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="144" width="80" height="15" uuid="56966eee-b1d5-45db-94e8-ae47ae32b285"/>
+				<text><![CDATA[Tipo de consulta:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="159" width="80" height="15" uuid="30391747-1ac1-4bba-9ee4-f25a6061bff6"/>
+				<text><![CDATA[Diagnóstico:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="174" width="80" height="15" uuid="31899cc3-2cc6-4593-9b03-fe672fad2ad7"/>
+				<text><![CDATA[Medicación:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="189" width="78" height="15" uuid="b0a1de4f-a213-425d-bcbd-cf5b1c08ae42"/>
+				<text><![CDATA[Tratamiento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="144" width="100" height="15" uuid="f8ec8b9e-fe30-495d-9765-7ad80f1d3226">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{tipoConsulta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="159" width="290" height="15" uuid="796ba590-265d-4d46-9cdf-62b695804f9a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{diagnostico}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="174" width="270" height="15" uuid="3aca4055-880c-42a1-a006-c391147a6cea">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{medicacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="189" width="360" height="100" uuid="70656da0-bb88-46fb-b49a-0db066c53ec3"/>
+				<textFieldExpression><![CDATA[$F{tratamiento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="129" width="41" height="15" uuid="54116443-0b06-4990-b7a0-0f0aa2c88c89"/>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="41" y="129" width="100" height="15" uuid="e27eee88-7ea1-4af3-a280-d50ea4b888a4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nombreMascota}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

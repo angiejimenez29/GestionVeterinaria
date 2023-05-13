@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" stylesheets="@../../css/estilo.css" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.seleccionTablas.SeleccionTablasRecepcionController">
+   <children>
+        <fx:include fx:id="menuBarApp" source="../menuBar/MenuBarApp.fxml" />
+      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="24.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_direccion">
+         <image>
+            <Image url="@../../img/logo_recepcion.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="126.0" layoutY="48.0" prefHeight="58.0" prefWidth="199.0" styleClass="texto_logo" text="Recepción" />
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="178.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+         <image>
+            <Image url="@../../img/logo_cliente.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="358.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+         <image>
+            <Image url="@../../img/logo_cita.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="542.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+         <image>
+            <Image url="@../../img/logo_factura.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="clientesButton" layoutX="158.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleClientes" styleClass="btn_perfil" text="Cliente" />
+      <Button fx:id="citasButton" layoutX="338.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleCitas" styleClass="btn_perfil" text="Citas" />
+      <Button fx:id="facturasButton" layoutX="522.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleFacturas" styleClass="btn_perfil" text="Facturas" />
+
+   </children>
+</AnchorPane>

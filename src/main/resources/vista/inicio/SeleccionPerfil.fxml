@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="texto-logo" stylesheets="@../../css/estilo.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="intelipet.SeleccionPerfilController">
+    <children>
+       <fx:include fx:id="menuBarApp" source="../menuBar/MenuBarApp.fxml" />
+        <Label layoutX="137.0" layoutY="24.0" prefHeight="58.0" prefWidth="155.0" styleClass="texto_logo" text="Intelipet" />
+        <Label layoutX="136.0" layoutY="82.0" styleClass="texto_logo2" text="Software de Gestión" />
+        <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../img/logo_intelipet.png" />
+            </image>
+        </ImageView>
+        <Text fill="#43bccd" layoutX="170.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido/a  Seleccione su perfil" textAlignment="CENTER" wrappingWidth="459.9228515625">
+            <font>
+                <Font name="Arial" size="45.0" />
+            </font>
+        </Text>
+        <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="250.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../img/logo_direccion.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="464.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../img/logo_recepcion.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="btnDir" layoutX="238.0" layoutY="475.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleAbrirDireccion" prefHeight="40.0" prefWidth="120.0" styleClass="btn_perfil" text="Direccción">
+            <effect>
+                <DropShadow blurType="GAUSSIAN" color="#707070" height="6.22" offsetX="1.0" offsetY="1.0" radius="1.055" width="0.0" />
+            </effect>
+        </Button>  
+        <Button fx:id="btnRec" layoutX="441.0" layoutY="475.0" mnemonicParsing="false" onAction="#handleAbrirRecepcion" prefHeight="40.0" prefWidth="120.0" styleClass="btn_perfil" text="Recepción">
+            <effect>
+                <DropShadow blurType="GAUSSIAN" color="#707070" height="6.22" offsetX="1.0" offsetY="1.0" radius="1.055" width="0.0" />
+            </effect>
+        </Button>
+    </children>
+</AnchorPane>

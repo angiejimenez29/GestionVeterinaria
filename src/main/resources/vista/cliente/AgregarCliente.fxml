@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../css/estilo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.cliente.AgregarClienteController">
+   <children>
+     <fx:include fx:id="menuBarCliente" source="../menuBar/MenuBarCliente.fxml" />
+      <Group layoutX="20.0" layoutY="20.0">
+         <children>
+            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+               <image>
+                  <Image url="@../../img/logo_mascota.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="80.0" layoutY="8.0" styleClass="texto_logo" text="Añadir Cliente" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="10.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangulo" width="760.0" />
+         </children>
+      </Group>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="400.0" layoutX="20.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" styleClass="fondo_tabla" width="760.0" />
+            
+            <Label fx:id="nombreCliente" layoutX="44.0" layoutY="240.0" styleClass="label_texto" text="Nombre" />
+            <Label fx:id="direccionCliente" layoutX="44.0" layoutY="418.0" styleClass="label_texto" text="Dirección" />
+            <TextField fx:id="field_nombreCliente" layoutX="126.0" layoutY="236.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+            <TextField fx:id="field_direccionCliente" layoutX="133.0" layoutY="414.0" prefHeight="30.0" prefWidth="181.0" styleClass="text_field2" />
+            <Label fx:id="sexoMascota" layoutX="339.0" layoutY="470.0" styleClass="text_Suscripcion" text="¿Suscibir al boletín mensual de nuestra clínica?">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+            <Label fx:id="fechaNacCliente" layoutX="44.0" layoutY="309.0" styleClass="label_texto" text="F. Nac" />
+            <Label fx:id="cpCliente" layoutX="339.0" layoutY="418.0" styleClass="label_texto" text="CP" />
+            <TextField fx:id="field_cpCliente" layoutX="380.0" layoutY="414.0" prefHeight="30.0" prefWidth="78.0" styleClass="text_field2" />
+            <Label fx:id="nombreMascota31" layoutX="495.0" layoutY="417.0" styleClass="label_texto" text="Población" />
+            <TextField fx:id="field_PoblacionCliente" layoutX="595.0" layoutY="414.0" prefHeight="30.0" prefWidth="162.0" styleClass="text_field2" />
+            <DatePicker fx:id="fechanacCliente" layoutX="126.0" layoutY="305.0" styleClass="data_pickerFechaNac" />
+            <ComboBox fx:id="suscripcionCliente" layoutX="696.0" layoutY="464.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="84.0" styleClass="comboBoxSuscripcion" />
+      <Label fx:id="dniCliente" layoutX="44.0" layoutY="167.0" styleClass="label_texto" text="DNI" />
+      <TextField fx:id="field_dniCliente" layoutX="126.0" layoutY="163.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+      <Label fx:id="seguroCliente" layoutX="275.0" layoutY="167.0" styleClass="label_texto" text="Seguro" />
+      <TextField fx:id="field_seguroCliente" layoutX="382.0" layoutY="163.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+      <Label fx:id="telefonoCliente" layoutX="519.0" layoutY="166.0" styleClass="label_texto" text="Teléfono" />
+      <TextField fx:id="field_telefonoCliente" layoutX="637.0" layoutY="163.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+      <Label fx:id="apellidoUnoCliente" layoutX="275.0" layoutY="239.0" styleClass="label_texto" text="1º Apellido" />
+      <TextField fx:id="field_apellidoUnoCliente" layoutX="382.0" layoutY="236.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+      <Label fx:id="apellidoDosCliente" layoutX="518.0" layoutY="240.0" styleClass="label_texto" text="2º Apellido" />
+      <TextField fx:id="field_apellidoDosCliente" layoutX="637.0" layoutY="235.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+      <Label fx:id="correroCliente" layoutX="44.0" layoutY="466.0" styleClass="label_texto" text="Correo" />
+      <TextField fx:id="field_correoCliente" layoutX="133.0" layoutY="464.0" prefHeight="30.0" prefWidth="181.0" styleClass="text_field2" />
+      <Line endX="611.800048828125" endY="-3.0517578125E-5" layoutX="145.0" layoutY="377.0" startX="-100.0" />
+      <Button fx:id="btn_addClientes" layoutX="650.0" layoutY="539.0" mnemonicParsing="false" onAction="#handleAgregarClientes" styleClass="btn_perfil" text="Añadir" />
+         
+      
+   </children>
+  
+</AnchorPane>

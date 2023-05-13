@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../css/estilo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.veterinario.EliminarVeterinarioController">
+   
+    <children>
+        <fx:include fx:id="menuBarVeterinario" source="../menuBar/MenuBarVeterinario.fxml" />
+        <Group layoutX="20.0" layoutY="20.0" stylesheets="@../../css/estilo.css">
+            <children>
+                <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+                    <image>
+                        <Image url="@../../img/logo_vet.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="66.0" layoutY="7.0" styleClass="texto_logo" text="Eliminar Veterinario" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="10.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangulo" width="760.0" />
+            </children>
+        </Group>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="400.0" layoutX="20.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" styleClass="fondo_tabla" width="760.0" />
+
+            
+        <TableView fx:id="tablaVeterinarios" layoutX="40.0" layoutY="194.0" prefHeight="301.0" prefWidth="720.0" styleClass="tabla_datos">
+            <columns>
+                <TableColumn fx:id="colIdVeterinario" prefWidth="25.600006103515625" text="ID" />
+                <TableColumn fx:id="colEspecialidad" minWidth="5.5999755859375" prefWidth="47.999969482421875" text="Especialidad" />
+                <TableColumn fx:id="colSalario" prefWidth="58.4000244140625" text="Salario" />
+                <TableColumn fx:id="colNombre" prefWidth="58.4000244140625" text="Nombre" />
+                <TableColumn fx:id="colApellidoUno" prefWidth="78.4000244140625" text="1º Apellido" />
+                <TableColumn fx:id="colApellidoDos" prefWidth="82.4000244140625" text="2º Apellido" />
+                <TableColumn fx:id="colDNI" prefWidth="50.399993896484375" text="DNI" />
+                <TableColumn fx:id="colFechaNacimiento" prefWidth="54.4000244140625" text="Fecha Nacimiento" />
+                <TableColumn fx:id="colDireccion" minWidth="0.0" prefWidth="43.199951171875" text="Dirección" />
+                <TableColumn fx:id="colCP" maxWidth="87.199951171875" prefWidth="43.20001220703125" text="CP" />
+                <TableColumn fx:id="colTelefono" prefWidth="50.4000244140625" text="Teléfono" />
+                <TableColumn fx:id="colEmail" maxWidth="126.4000244140625" minWidth="0.0" prefWidth="126.4000244140625" text="Email" />
+                <TableColumn fx:id="colTurno" maxWidth="72.800048828125" minWidth="0.0" prefWidth="0.0" text="Turno" />
+            </columns>
+        </TableView>
+
+
+        <Button fx:id="btn_eliminarVeterinarios" layoutX="634.0" layoutY="538.0" mnemonicParsing="false" onAction="#handleEliminarVeterinarios" prefWidth="126.0" styleClass="btn_perfil" stylesheets="@../../css/estilo.css" text="Eliminar" />
+      <Label layoutX="40.0" layoutY="144.0" styleClass="label_texto" text="Introduzca el DNI del veterinario" />
+      <TextField fx:id="buscarVeterinario" layoutX="351.0" layoutY="140.0" prefWidth="126.0" styleClass="text_field_dniCliente" />
+      <Button fx:id="btn_obtenerVeterinario" layoutX="40.0" layoutY="538.0" mnemonicParsing="false" onAction="#handleObtenerVeterinarios" styleClass="btn_perfil" text="Resultados" />
+    </children>
+</AnchorPane>

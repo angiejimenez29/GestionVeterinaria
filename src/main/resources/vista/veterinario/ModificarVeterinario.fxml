@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../css/estilo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.veterinario.ModificarVeterinarioController">
+    <children>
+        <fx:include fx:id="menuBarVeterinario" source="../menuBar/MenuBarVeterinario.fxml" />
+        <Group layoutX="20.0" layoutY="20.0">
+            <children>
+                <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+                    <image>
+                        <Image url="@../../img/logo_vet.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="80.0" layoutY="8.0" styleClass="texto_logo" text="Modificar Veterinario" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="10.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangulo" width="760.0" />
+            </children>
+        </Group>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="400.0" layoutX="20.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" styleClass="fondo_tabla" width="760.0" />
+            
+        <Label fx:id="nombreVeterinario" layoutX="44.0" layoutY="365.0" styleClass="label_texto" text="Nombre" />
+        <Label fx:id="direccionVeterinario" layoutX="44.0" layoutY="479.0" styleClass="label_texto" text="Dirección" />
+        <TextField fx:id="field_nombreVeterinario" layoutX="126.0" layoutY="361.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+        <TextField fx:id="field_direccionVeterinario" layoutX="133.0" layoutY="475.0" prefHeight="30.0" prefWidth="181.0" styleClass="text_field2" />
+        <Label fx:id="fechaNacVeterinario" layoutX="44.0" layoutY="413.0" styleClass="label_texto" text="F. Nac" />
+        <Label fx:id="cpVeterinario" layoutX="339.0" layoutY="479.0" styleClass="label_texto" text="CP" />
+        <TextField fx:id="field_cpVeterinario" layoutX="380.0" layoutY="475.0" prefHeight="30.0" prefWidth="78.0" styleClass="text_field2" />
+        <DatePicker fx:id="fechanacVeterinario" layoutX="126.0" layoutY="409.0" styleClass="data_pickerFechaNac" />
+        <ComboBox fx:id="turnoVeterinario" layoutX="435.0" layoutY="409.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="84.0" styleClass="comboBoxSuscripcion" />
+        <Label fx:id="dniVeterinario" layoutX="44.0" layoutY="319.0" styleClass="label_texto" text="DNI" />
+        <TextField fx:id="field_dniVeterinario" layoutX="126.0" layoutY="315.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+        <Label fx:id="especialidadVeterinario" layoutX="267.0" layoutY="319.0" styleClass="label_texto" text="Especialidad" />
+        <TextField fx:id="field_especialidadVeterinario" layoutX="387.0" layoutY="315.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+        <Label fx:id="telefonoVeterinario" layoutX="518.0" layoutY="412.0" styleClass="label_texto" text="Teléfono" />
+        <TextField fx:id="field_telefonoVeterinario" layoutX="636.0" layoutY="409.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+        <Label fx:id="apellidoUnoVeterinario" layoutX="275.0" layoutY="364.0" styleClass="label_texto" text="1º Apellido" />
+        <TextField fx:id="field_apellidoUnoVeterinario" layoutX="387.0" layoutY="361.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+        <Label fx:id="apellidoDosVeterinario" layoutX="518.0" layoutY="365.0" styleClass="label_texto" text="2º Apellido" />
+        <TextField fx:id="field_apellidoDosVeterinario" layoutX="637.0" layoutY="360.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+        <Label fx:id="correroVeterinario" layoutX="487.0" layoutY="477.0" styleClass="label_texto" text="Correo" />
+        <TextField fx:id="field_correoVeterinario" layoutX="576.0" layoutY="475.0" prefHeight="30.0" prefWidth="181.0" styleClass="text_field2" />
+        <Line endX="611.800048828125" endY="-3.0517578125E-5" layoutX="145.0" layoutY="456.0" startX="-100.0" />
+        <Button fx:id="btn_modificarVeterinarios" layoutX="650.0" layoutY="539.0" mnemonicParsing="false" onAction="#handleModificarVeterinarios" styleClass="btn_perfil" text="Modificar" />
+        <Label fx:id="comboBoxturnoVeterinario" layoutX="276.0" layoutY="412.0" styleClass="label_texto" text="Turno" />
+        <Label fx:id="salarioVeterinario" layoutX="520.0" layoutY="318.0" styleClass="label_texto" text="Salario" />
+        <TextField fx:id="field_salarioVeterinario" layoutX="638.0" layoutY="315.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+        <TableView fx:id="tablaVeterinarios" layoutX="40.0" layoutY="133.0" onMouseClicked="#seleccionar" prefHeight="166.0" prefWidth="720.0" styleClass="tabla_datos">
+            <columns>
+                <TableColumn fx:id="colIdVeterinario" prefWidth="25.600006103515625" text="ID" />
+                <TableColumn fx:id="colEspecialidad" minWidth="5.5999755859375" prefWidth="47.999969482421875" text="Especialidad" />
+                <TableColumn fx:id="colSalario" prefWidth="58.4000244140625" text="Salario" />
+                <TableColumn fx:id="colNombre" prefWidth="58.4000244140625" text="Nombre" />
+                <TableColumn fx:id="colApellidoUno" prefWidth="78.4000244140625" text="1º Apellido" />
+                <TableColumn fx:id="colApellidoDos" prefWidth="82.4000244140625" text="2º Apellido" />
+                <TableColumn fx:id="colDNI" prefWidth="50.399993896484375" text="DNI" />
+                <TableColumn fx:id="colFechaNacimiento" prefWidth="54.4000244140625" text="Fecha Nacimiento" />
+                <TableColumn fx:id="colDireccion" minWidth="0.0" prefWidth="43.199951171875" text="Dirección" />
+                <TableColumn fx:id="colCP" maxWidth="87.199951171875" prefWidth="43.20001220703125" text="CP" />
+                <TableColumn fx:id="colTelefono" prefWidth="50.4000244140625" text="Teléfono" />
+                <TableColumn fx:id="colEmail" maxWidth="126.4000244140625" minWidth="0.0" prefWidth="126.4000244140625" text="Email" />
+                <TableColumn fx:id="colTurno" maxWidth="72.800048828125" minWidth="0.0" prefWidth="0.0" text="Turno" />
+            </columns>
+        </TableView>
+         
+      
+    </children>
+  
+</AnchorPane>

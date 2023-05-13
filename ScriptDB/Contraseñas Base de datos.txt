@@ -1,0 +1,9 @@
+Usuario con privilegios
+director
+contraseña
+director1234
+
+Usuario privilegios limitados
+recepcionista
+contraseña
+recepcionista1234

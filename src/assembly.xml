@@ -1,0 +1,26 @@
+<assembly>
+  <id>bin</id>
+  <formats>
+    <format>jar</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>${project.build.outputDirectory}</directory>
+      <outputDirectory>/</outputDirectory>
+    </fileSet>
+  </fileSets>
+  <moduleSets>
+    <moduleSet>
+      <useAllReactorProjects>true</useAllReactorProjects>
+      <includes>
+        <include>${project.groupId}:${project.artifactId}</include>
+      </includes>
+      <binaries>
+        <outputDirectory>/lib/</outputDirectory>
+        <unpack>false</unpack>
+        <scope>runtime</scope>
+      </binaries>
+    </moduleSet>
+  </moduleSets>
+</assembly>

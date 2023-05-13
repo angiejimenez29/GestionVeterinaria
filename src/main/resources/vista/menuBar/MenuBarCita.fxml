@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="mainPane" maxWidth="793.0" prefHeight="52.0" prefWidth="793.0" styleClass="mainFxmlClass" stylesheets="@../../css/estilo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.menuBar.MenuBarCitaController">
+     
+    <MenuBar fx:id="menuBarCita" layoutX="610.0" layoutY="20.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" style="-fx-border: hand;" styleClass="menu_bar" stylesheets="@../../css/estilo.css">
+         <menus>
+            <Menu fx:id="citasMenu" mnemonicParsing="false" styleClass="menu" text="Citas">
+               <items>
+                  <MenuItem fx:id="addCitaItem" mnemonicParsing="false" onAction="#handleAgregarCitas" styleClass="menu_item" text="Añadir" />
+                  <MenuItem fx:id="modificarCitaItem" mnemonicParsing="false" onAction="#handleModificarCitas" styleClass="menu_item" text="Modificar" />
+                  <MenuItem fx:id="borrarCitaItem" mnemonicParsing="false" onAction="#handleBorrarCitas" styleClass="menu_item" text="Eliminar" />
+                  <MenuItem fx:id="buscarCitaItem" mnemonicParsing="false" onAction="#handleBuscarCitas" styleClass="menu_item" text="Buscar" />
+                  <MenuItem fx:id="listCitaItem" mnemonicParsing="false" onAction="#handleListCitas" styleClass="menu_item" text="Listado" />
+               <MenuItem fx:id="informeCitaItem" mnemonicParsing="false" onAction="#handleGenerarInformeCitas" styleClass="menu_item" text="Informe" />
+               </items>
+            </Menu>
+            <Menu fx:id="ayudaMenu" mnemonicParsing="false" styleClass="menu_item" text="Ayuda">
+               <items>
+                  <MenuItem fx:id="Ayuda" mnemonicParsing="false" onAction="#handleManualAyuda" styleClass="menu_item" text="Manual de ayuda" />
+               </items>
+            </Menu>
+            <Menu fx:id="salirMenu" mnemonicParsing="false" styleClass="menu_item" text="Salir">
+               <items>
+                  <MenuItem fx:id="salirApp" mnemonicParsing="false" onAction="#handleSalirApp" styleClass="menu_item" text="Salir" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+</AnchorPane>

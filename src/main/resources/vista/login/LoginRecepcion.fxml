@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" stylesheets="@../../css/estilo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.login.LoginRecepcionController">
+    <children>
+        <fx:include fx:id="menuBarApp" source="../menuBar/MenuBarApp.fxml" />
+        <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="24.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../img/logo_intelipet.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="146.0" layoutY="92.0" styleClass="texto_logo2" stylesheets="@../../css/estilo.css" text="Software de Gestión" />
+        <Label layoutX="147.0" layoutY="34.0" prefHeight="58.0" prefWidth="155.0" styleClass="texto_logo" stylesheets="@../../css/estilo.css" text="Intelipet" />
+      <AnchorPane layoutX="235.0" layoutY="153.0" prefHeight="370.0" prefWidth="350.0" style="" styleClass="panel">
+         <children>
+            <TextField fx:id="usernameField" layoutX="91.0" layoutY="110.0" onMouseClicked="#handleEliminarUserNameClick" styleClass="text_field" text="Usuario">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="passwordField" layoutX="91.0" layoutY="175.0" onMouseClicked="#handleEliminarPasswordClick" styleClass="text_field" text="Contraseña" />
+            <ToggleButton fx:id="mostrarPassword" layoutX="114.0" layoutY="230.0" onAction="#handleMostrarPassword" styleClass="mostrar_password" stylesheets="@../../css/estilo.css" text="Mostrar contraseña" />
+            <Label layoutX="83.0" layoutY="38.0" style="-fx-letter-spacing: 25;" styleClass="titulo_login" text="Login Recepción">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="loginButton" layoutX="115.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleLogin" styleClass="btn_perfil" text="Login" />
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="53.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_login">
+               <image>
+                  <Image url="@../../img/user_logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="53.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_login">
+               <image>
+                  <Image url="@../../img/candado_logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>

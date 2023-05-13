@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../css/estilo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.cliente.ModificarClienteController">
+   
+    <children>
+         <fx:include fx:id="menuBarCliente" source="../menuBar/MenuBarCliente.fxml" />
+        <Group layoutX="20.0" layoutY="20.0" stylesheets="@../../css/estilo.css">
+            <children>
+                <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+                    <image>
+                        <Image url="@../../img/logo_cliente.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="80.0" layoutY="8.0" styleClass="texto_logo" text="Modificar Clientes" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="10.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangulo" width="760.0" />
+            </children>
+        </Group>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="400.0" layoutX="20.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" styleClass="fondo_tabla" width="760.0" />
+
+            
+        <TableView fx:id="tablaClientes" layoutX="38.0" layoutY="135.0" onMouseClicked="#seleccionar" prefHeight="122.0" prefWidth="722.0" styleClass="tabla_datos">
+            <columns>
+                <TableColumn fx:id="colIdCliente" prefWidth="25.600006103515625" text="ID" />
+                <TableColumn fx:id="colDNI" prefWidth="50.399993896484375" text="DNI" />
+                <TableColumn fx:id="colSeguroCliente" minWidth="5.5999755859375" prefWidth="47.999969482421875" text="Seguro" />
+                <TableColumn fx:id="colNombre" prefWidth="58.4000244140625" text="Nombre" />
+                <TableColumn fx:id="colApellidoUno" prefWidth="78.4000244140625" text="1º Apellido" />
+                <TableColumn fx:id="colApellidoDos" prefWidth="82.4000244140625" text="2º Apellido" />
+                <TableColumn fx:id="colFechaNacimiento" prefWidth="54.4000244140625" text="Fecha Nacimiento" />
+                <TableColumn fx:id="colTelefono" prefWidth="50.4000244140625" text="Teléfono" />
+                <TableColumn fx:id="colDireccion" minWidth="0.0" prefWidth="43.199951171875" text="Dirección" />
+                <TableColumn fx:id="colCP" maxWidth="87.199951171875" prefWidth="43.20001220703125" text="CP" />
+                <TableColumn fx:id="colPoblacion" maxWidth="73.5999755859375" minWidth="-1.0" prefWidth="49.5999755859375" text="Población" />
+                <TableColumn fx:id="colEmail" maxWidth="126.4000244140625" minWidth="0.0" prefWidth="126.4000244140625" text="Email" />
+                <TableColumn fx:id="colSuscripcion" maxWidth="72.800048828125" minWidth="0.0" prefWidth="0.0" text="Suscripción" />
+            </columns>
+        </TableView>
+
+
+        <Button fx:id="btn_modificarClientes" layoutX="634.0" layoutY="538.0" mnemonicParsing="false" onAction="#handleModificarClientes" prefWidth="126.0" styleClass="btn_perfil" stylesheets="@../../css/estilo.css" text="Modificar" />
+      <Label fx:id="nombreCliente" layoutX="43.0" layoutY="324.0" styleClass="label_texto" text="Nombre" />
+      <Label fx:id="direccionCliente" layoutX="43.0" layoutY="431.0" styleClass="label_texto" text="Dirección" />
+      <TextField fx:id="field_nombreCliente" layoutX="125.0" layoutY="320.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+      <TextField fx:id="field_direccionCliente" layoutX="132.0" layoutY="427.0" prefHeight="30.0" prefWidth="181.0" styleClass="text_field2" />
+      <Label fx:id="sexoMascota" layoutX="338.0" layoutY="479.0" styleClass="text_Suscripcion" text="¿Suscibir al boletín mensual de nuestra clínica?">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="fechaNacCliente" layoutX="43.0" layoutY="374.0" styleClass="label_texto" text="F. Nac" />
+      <Label fx:id="cpCliente" layoutX="341.0" layoutY="431.0" styleClass="label_texto" text="CP" />
+      <TextField fx:id="field_cpCliente" layoutX="379.0" layoutY="427.0" prefHeight="30.0" prefWidth="78.0" styleClass="text_field2" />
+      <Label fx:id="nombreMascota31" layoutX="494.0" layoutY="430.0" styleClass="label_texto" text="Población" />
+      <TextField fx:id="field_PoblacionCliente" layoutX="594.0" layoutY="427.0" prefHeight="30.0" prefWidth="162.0" styleClass="text_field2" />
+      <DatePicker fx:id="fechanacCliente" layoutX="125.0" layoutY="370.0" styleClass="data_pickerFechaNac" />
+      <ComboBox fx:id="suscripcionCliente" layoutX="695.0" layoutY="473.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="84.0" styleClass="comboBoxSuscripcion" />
+      <Label fx:id="dniCliente" layoutX="43.0" layoutY="275.0" styleClass="label_texto" text="DNI" />
+      <TextField fx:id="field_dniCliente" layoutX="125.0" layoutY="271.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+      <Label fx:id="seguroCliente" layoutX="274.0" layoutY="275.0" styleClass="label_texto" text="Seguro" />
+      <TextField fx:id="field_seguroCliente" layoutX="381.0" layoutY="271.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+      <Label fx:id="telefonoCliente" layoutX="518.0" layoutY="274.0" styleClass="label_texto" text="Teléfono" />
+      <TextField fx:id="field_telefonoCliente" layoutX="636.0" layoutY="271.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+      <Label fx:id="apellidoUnoCliente" layoutX="274.0" layoutY="323.0" styleClass="label_texto" text="1º Apellido" />
+      <TextField fx:id="field_apellidoUnoCliente" layoutX="381.0" layoutY="320.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+      <Label fx:id="apellidoDosCliente" layoutX="517.0" layoutY="324.0" styleClass="label_texto" text="2º Apellido" />
+      <TextField fx:id="field_apellidoDosCliente" layoutX="636.0" layoutY="319.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+      <Label fx:id="correroCliente" layoutX="43.0" layoutY="475.0" styleClass="label_texto" text="Correo" />
+      <TextField fx:id="field_correoCliente" layoutX="132.0" layoutY="473.0" prefHeight="30.0" prefWidth="181.0" styleClass="text_field2" />
+    </children>
+</AnchorPane>

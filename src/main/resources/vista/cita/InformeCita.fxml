@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../css/estilo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.cita.InformeCitaController">
+   
+    <children>
+        <fx:include fx:id="menuBarCita" source="../menuBar/MenuBarCita.fxml" />
+        <Group layoutX="20.0" layoutY="20.0" stylesheets="@../../css/estilo.css">
+            <children>
+                <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+                    <image>
+                        <Image url="@../../img/logo_cita.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="63.0" layoutY="8.0" styleClass="texto_logo" text="Informe Cita" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="10.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangulo" width="760.0" />
+            </children>
+        </Group>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="400.0" layoutX="20.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" styleClass="fondo_tabla" width="760.0" />
+
+            
+        <TableView fx:id="tablaCitas" layoutX="40.0" layoutY="189.0" prefHeight="306.0" prefWidth="720.0" styleClass="tabla_datos">
+            <columns>
+                <TableColumn fx:id="colIdCita" prefWidth="52.800018310546875" text="ID Cita" />
+                <TableColumn fx:id="colNombreVet" minWidth="0.0" prefWidth="0.0" text="Nombre Vet" />
+                <TableColumn fx:id="colApellidoUnoVet" prefWidth="49.5999755859375" text="1º Apellido Vet" />
+                <TableColumn fx:id="colApellidoDosVet" minWidth="3.20001220703125" prefWidth="48.0" text="2ª Apellido Vet" />
+                <TableColumn fx:id="colNombreMascota" minWidth="0.0" prefWidth="32.79998779296875" text="Nombre Mascota" />
+                <TableColumn fx:id="colFechaCita" minWidth="7.20001220703125" prefWidth="32.800048828125" text="Fecha" />
+                <TableColumn fx:id="colHoraCita" minWidth="0.0" prefWidth="33.5999755859375" text="Hora" />
+                <TableColumn fx:id="colTipoConsulta" maxWidth="134.39996337890625" prefWidth="109.5999755859375" text="Tipo consulta" />
+                <TableColumn fx:id="colDiagnostico" minWidth="0.0" prefWidth="81.60003662109375" text="Diagnóstico" />
+                <TableColumn fx:id="colTratamiento" maxWidth="126.4000244140625" minWidth="0.0" prefWidth="107.199951171875" text="Tratamiento" />
+                <TableColumn fx:id="colMedicacion" maxWidth="81.5999755859375" minWidth="0.0" prefWidth="73.5999755859375" text="Medicación" />
+                <TableColumn fx:id="colPrecio" maxWidth="84.0" minWidth="0.0" prefWidth="83.2000732421875" text="Precio" />
+            </columns>
+        </TableView>
+
+
+        <Button fx:id="btn_mostrarCitas" layoutX="634.0" layoutY="538.0" mnemonicParsing="false" onAction="#handleBuscarCitas" prefWidth="126.0" styleClass="btn_perfil" stylesheets="@../../css/estilo.css" text="Buscar" />
+        <Label layoutX="40.0" layoutY="144.0" styleClass="label_texto" text="Introduzca el DNI del cliente" />
+        <TextField fx:id="buscarCita" layoutX="300.0" layoutY="140.0" prefWidth="126.0" styleClass="text_field_dniCliente" />
+      <Button fx:id="btn_informeCitas" layoutX="40.0" layoutY="538.0" mnemonicParsing="false" onAction="#handleGenerarInformeCitas" prefWidth="138.0" styleClass="btn_perfil_informe" text="Generar Informe" />
+    </children>
+</AnchorPane>

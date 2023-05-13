@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../css/estilo.css" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.auxiliar.AgregarAuxiliarController">
+    <children>
+        <fx:include fx:id="menuBarAuxiliar" source="../menuBar/MenuBarAuxiliar.fxml" />
+        <Group layoutX="20.0" layoutY="20.0">
+            <children>
+                <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+                    <image>
+                        <Image url="@../../img/logo_auxiiliar.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="80.0" layoutY="8.0" styleClass="texto_logo" text="Añadir Auxiliar" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="10.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangulo" width="760.0" />
+            </children>
+        </Group>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="400.0" layoutX="20.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" styleClass="fondo_tabla" width="760.0" />
+            
+        <Label fx:id="nombreAuxiliar" layoutX="44.0" layoutY="224.0" styleClass="label_texto" text="Nombre" />
+        <Label fx:id="direccionAuxiliar" layoutX="44.0" layoutY="399.0" styleClass="label_texto" text="Dirección" />
+        <TextField fx:id="field_nombreAuxiliar" layoutX="126.0" layoutY="220.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+        <TextField fx:id="field_direccionAuxiliar" layoutX="135.0" layoutY="395.0" prefHeight="30.0" prefWidth="150.0" styleClass="text_field2" />
+        <Label fx:id="fechaNacAuxiliar" layoutX="44.0" layoutY="289.0" styleClass="label_texto" text="F. Nac" />
+        <Label fx:id="cpAuxiliar" layoutX="344.0" layoutY="399.0" styleClass="label_texto" text="CP" />
+        <TextField fx:id="field_cpAuxiliar" layoutX="386.0" layoutY="395.0" prefHeight="30.0" prefWidth="78.0" styleClass="text_field2" />
+        <DatePicker fx:id="fechanacAuxiliar" layoutX="126.0" layoutY="285.0" styleClass="data_pickerFechaNac" />
+        <ComboBox fx:id="turnoAuxiliar" layoutX="435.0" layoutY="285.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="84.0" styleClass="comboBoxSuscripcion" />
+        <Label fx:id="dniAuxiliar" layoutX="44.0" layoutY="163.0" styleClass="label_texto" text="DNI" />
+        <TextField fx:id="field_dniAuxiliar" layoutX="126.0" layoutY="159.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+        <Label fx:id="especialidadAuxiliar" layoutX="267.0" layoutY="163.0" styleClass="label_texto" text="Especialidad" />
+        <TextField fx:id="field_especialidadAuxiliar" layoutX="387.0" layoutY="159.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+        <Label fx:id="telefonoAuxiliar" layoutX="518.0" layoutY="288.0" styleClass="label_texto" text="Teléfono" />
+        <TextField fx:id="field_telefonoAuxiliar" layoutX="636.0" layoutY="285.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+        <Label fx:id="apellidoUnoAuxiliar" layoutX="267.0" layoutY="223.0" styleClass="label_texto" text="1º Apellido" />
+        <TextField fx:id="field_apellidoUnoAuxiliar" layoutX="387.0" layoutY="220.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+        <Label fx:id="apellidoDosAuxiliar" layoutX="518.0" layoutY="224.0" styleClass="label_texto" text="2º Apellido" />
+        <TextField fx:id="field_apellidoDosAuxiliar" layoutX="637.0" layoutY="219.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+        <Label fx:id="correroAuxiliar" layoutX="538.0" layoutY="397.0" styleClass="label_texto" text="Correo" />
+        <TextField fx:id="field_correoAuxiliar" layoutX="612.0" layoutY="395.0" prefHeight="30.0" prefWidth="150.0" styleClass="text_field2" />
+        <Line endX="611.800048828125" endY="-3.0517578125E-5" layoutX="145.0" layoutY="368.0" startX="-100.0" />
+        <Button fx:id="btn_addAuxiliares" layoutX="650.0" layoutY="539.0" mnemonicParsing="false" onAction="#handleAgregarAuxiliares" styleClass="btn_perfil" text="Añadir" />
+        <Label fx:id="comboBoxturnoAuxiliar" layoutX="267.0" layoutY="289.0" styleClass="label_texto" text="Turno" />
+        <Label fx:id="salarioAuxiliar" layoutX="520.0" layoutY="162.0" styleClass="label_texto" text="Salario" />
+        <TextField fx:id="field_salarioAuxiliar" layoutX="638.0" layoutY="159.0" prefHeight="30.0" prefWidth="120.0" styleClass="text_field2" />
+         
+      
+    </children>
+  
+</AnchorPane>

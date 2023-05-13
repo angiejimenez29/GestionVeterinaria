@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" stylesheets="@../../css/estilo.css" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.seleccionTablas.SeleccionTablasDireccionController">
+   <children>
+        <fx:include fx:id="menuBarApp" source="../menuBar/MenuBarApp.fxml" />
+      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="24.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_direccion">
+         <image>
+            <Image url="@../../img/logo_direccion.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="149.0" layoutY="48.0" prefHeight="58.0" prefWidth="199.0" styleClass="texto_logo" text="Dirección" />
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="97.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+         <image>
+            <Image url="@../../img/logo_mascota.png" />
+         </image></ImageView>
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="287.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+         <image>
+            <Image url="@../../img/logo_vet.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="469.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+         <image>
+            <Image url="@../../img/logo_auxiiliar.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="655.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+         <image>
+            <Image url="@../../img/logo_recepcion.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="194.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+         <image>
+            <Image url="@../../img/logo_cliente.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="374.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+         <image>
+            <Image url="@../../img/logo_cita.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="558.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true" styleClass="logo_tablas">
+         <image>
+            <Image url="@../../img/logo_factura.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="mascotasButton" layoutX="74.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleMascotas" styleClass="btn_perfil" text="Mascotas" />
+      <Button fx:id="veterinariosButton" layoutX="261.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleVeterinarios" styleClass="btn_perfil" text="Veterinario/a" />
+      <Button fx:id="auxiliaresButton" layoutX="449.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleAuxiliares" styleClass="btn_perfil" text="Auxiliar" />
+      <Button fx:id="recepcionistasButton" layoutX="625.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleRecepcionistas" styleClass="btn_perfil" text="Recepción" />
+      <Button fx:id="clientesButton" layoutX="174.0" layoutY="474.0" mnemonicParsing="false" onAction="#handleClientes" styleClass="btn_perfil" text="Cliente" />
+      <Button fx:id="citasButton" layoutX="354.0" layoutY="474.0" mnemonicParsing="false" onAction="#handleCitas" styleClass="btn_perfil" text="Citas" />
+      <Button fx:id="facturasButton" layoutX="538.0" layoutY="474.0" mnemonicParsing="false" onAction="#handleFacturas" styleClass="btn_perfil" text="Facturas" />
+
+   </children>
+</AnchorPane>
