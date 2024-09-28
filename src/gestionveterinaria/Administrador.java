@@ -1,7 +1,8 @@
 package gestionveterinaria;
 
- //Author: gida.j
- //Ccahuana Quiñones Judith Valeria
+//Author: gida.j
+//Ccahuana Quiñones Judith Valeria
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
