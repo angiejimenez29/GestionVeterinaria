@@ -1,6 +1,6 @@
 package gestionveterinaria;
 
- //Author: gida.j
+ //Author: ANGIE
 import java.util.ArrayList;
 import java.util.Scanner;
 
