@@ -39,7 +39,7 @@ public class Administrador {
         this.adminContras = new ArrayList<>();
         this.clienteUsuarios = new ArrayList<>();
         this.clienteContras = new ArrayList<>();
-        
+        this.personal = new Personal();
         adminUsuarios.add("admin");
         adminContras.add("123");
         
@@ -282,32 +282,7 @@ public class Administrador {
     }
 
     private void menuPersonal(Scanner scanner) {
-        int opcion;
-        do {
-            System.out.println("\n--- Personal ---");
-            System.out.println("1. Agregar personal");
-            System.out.println("2. Ver personal");
-            System.out.println("3. Volver");
-            System.out.println("--------------------");
-            System.out.print("\nSeleccione una opcion: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
-            System.out.println("\n");
-
-            switch (opcion) {
-                case 1:
-                    Personal.agregarPersonal(scanner);
-                    break;
-                case 2:
-                    Personal.verPersonal();
-                    break;
-                case 3:
-                    System.out.println("");
-                    break;
-                default:
-                    System.out.println("Opcion no valida");
-            }
-        } while (opcion != 3);
+        personal.iniciarMenu();
     }
 
     private void menuCitas(Scanner scanner) {
@@ -326,7 +301,7 @@ public class Administrador {
 
             switch (opcion) {
                 case 1:
-                    Cita.agendarCita(scanner);
+                    
                     break;
                 case 2:
                     Cita.modificarCita(scanner);
@@ -359,7 +334,7 @@ public class Administrador {
             System.out.println("\n");
             switch (opcion) {
                 case 1:
-                    Cita.agendarCita(scanner);
+                    
                     break;
                 case 2:
                     Cita.modificarCita(scanner);
