@@ -2,6 +2,7 @@ package gestionveterinaria;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 
@@ -12,6 +13,7 @@ public class Administrador {
     private ArrayList<String> adminContras;
     private ArrayList<String> clienteUsuarios;
     private ArrayList<String> clienteContras;
+    private static List<String> mascotasRegistradas = new ArrayList<>();
     private Cita cita;
     private Personal personal;
     
@@ -222,6 +224,7 @@ public class Administrador {
         mascota.gestionarEnfermedades(scanner);
         
         mascotas.add(mascota);
+        mascotasRegistradas.add(nombreMascota);
         
         System.out.println("\nRegistro exitoso");
         System.out.println("Usuario creado: " + usuario);
@@ -230,6 +233,10 @@ public class Administrador {
    
     private String generarUsuario(String nombre, String apellido){
         return(nombre.trim().toLowerCase()+"."+apellido.trim().toLowerCase().replaceAll(" "," "));
+    }
+    
+    public static boolean isMascotaRegistrada(String nombreMascota) {
+        return mascotasRegistradas.contains(nombreMascota);
     }
     
     private void menuAdministrador(Scanner scanner) {
@@ -301,7 +308,7 @@ public class Administrador {
 
             switch (opcion) {
                 case 1:
-                    
+                    Cita.agendarCita(scanner);
                     break;
                 case 2:
                     Cita.modificarCita(scanner);
@@ -334,7 +341,7 @@ public class Administrador {
             System.out.println("\n");
             switch (opcion) {
                 case 1:
-                    
+                    menuCitas(scanner);
                     break;
                 case 2:
                     Cita.modificarCita(scanner);
