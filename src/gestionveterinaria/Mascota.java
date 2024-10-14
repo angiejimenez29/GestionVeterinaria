@@ -19,25 +19,26 @@ public class Mascota {
     private String observaciones;
     private boolean castrada;
     private boolean gestante;
+    private Cliente cliente;
+    private ArrayList<String> historialMedico;
     
     private static final String[] vacunasPerro = {"Sextuple (DHPPi+L)", "Quintuple (DHPPi)", "Triple (DHP)", "Antirrabica", "Tos de las Perreras"};
     private static final String[] vacunasGato = {"Cuadruple (V4)", "Triple (V3)", "Antirrabica", "Leucemia felina", "Clamidiosis"};
-    private static final String[] vacunasAve = {"Viruela aviar", "Newcastle", "Bronquitis infecciosa", "Gumboro", "Marek"};
     private static final String[] vacunasConejo = {"Mixomatosis", "Enfermedad hemorrágica viral", "Pasteurelosis"};
     
     private static final String[] alergiasPerro = {"Polen de pasto", "Picaduras de pulgas", "Pollo", "Penicilina", "Frutos secos", "Lactosa"};
     private static final String[] alergiasGato = {"Polen de flores", "Picaduras de pulgas", "Pescado", "Lactosa"};
-    private static final String[] alergiasAve = {"Polen de flores", "Plumas de otras aves", "Semillas"};
     private static final String[] alergiasConejo = {"Heno de alfalfa", "Polen de flores", "Frutos secos"};
 
     private static final String[] enfermedadesPerro = {"Moquillo", "Parvovirus", "Hepatitis infecciosa", "Leptospirosis", "Tos de las Perreras", "Coronavirus", "Rabia", "Dermatitis"};
     private static final String[] enfermedadesGato = {"Panleucopenia", "Rinotraqueitis", "Calicivirus", "Leucemia felina", "Clamidiosis", "Rabia", "Dermatitis"};
-    private static final String[] enfermedadesAve = {"Viruela aviar", "Newcastle", "Bronquitis infecciosa", "Gumboro", "Marek"};
-    private static final String[] enfermedadesConejo = {"Mixomatosis", "Enfermedad hemorrhagica viral", "Pasteurelosis", "Dermatitis"};
+    private static final String[] enfermedadesConejo = {"Mixomatosis", "Enfermedad hemorragica viral", "Pasteurelosis", "Dermatitis"};
 
     public Mascota(String nombre, String especie, String raza, int edad, String sexo, String color, 
                    double peso, String fechaNacimiento, String fechaRegistro,
-                   ArrayList<String> vacunas, ArrayList<String> alergias, ArrayList<String> enfermedades, String observaciones, boolean castrada, boolean gestante){
+                   ArrayList<String> vacunas, ArrayList<String> alergias,
+                   ArrayList<String> enfermedades, String observaciones, 
+                   boolean castrada, boolean gestante, Cliente cliente){
         this.nombreMascota = nombre;
         this.edad = edad;
         this.especie = especie;
@@ -53,6 +54,19 @@ public class Mascota {
         this.observaciones = observaciones;
         this.castrada = castrada;
         this.gestante = gestante;
+        this.cliente = cliente;
+        this.historialMedico = new ArrayList<>();
+    }
+    public Cliente getCliente(){
+        return cliente;
+    }
+    
+    public void agregarHistorialMedico(String entrada) {
+        historialMedico.add(entrada);
+    }
+
+    public ArrayList<String> getHistorialMedico() {
+        return historialMedico;
     }
     
     public void gestionarVacunas(Scanner scanner){
@@ -85,7 +99,7 @@ public class Mascota {
         }
     }
     
-    private String[] vacunasEspecie(){
+    public String[] vacunasEspecie(){
         switch (especie) {
             case "Canino":
             case "canino":
@@ -95,9 +109,6 @@ public class Mascota {
             case "felino":
             case "gato":
                 return vacunasGato;
-            case "Ave":
-            case "ave":
-                return vacunasAve;
             case "Conejo":
             case "conejo":
                 return vacunasConejo;
@@ -150,7 +161,7 @@ public class Mascota {
     }
     }
     
-    private String[] alergiasEspecie(){
+    public String[] alergiasEspecie(){
         switch (especie) {
             case "Canino":
             case "canino":
@@ -160,9 +171,6 @@ public class Mascota {
             case "felino":
             case "gato":
                 return alergiasGato;
-            case "Ave":
-            case "ave":
-                return alergiasAve;
             case "Conejo":
             case "conejo":
                 return alergiasConejo;
@@ -214,7 +222,7 @@ public class Mascota {
     }
     }
     
-     private String[] enfermedadesEspecie(){
+     public String[] enfermedadesEspecie(){
         switch (especie) {
             case "Canino":
             case "canino":
@@ -224,9 +232,6 @@ public class Mascota {
             case "felino":
             case "gato":
                 return enfermedadesGato;
-            case "Ave":
-            case "ave":
-                return enfermedadesAve;
             case "Conejo":
             case "conejo":
                 return enfermedadesConejo;
@@ -298,4 +303,60 @@ public class Mascota {
         return gestante;
     }
 
+    public void setNombreMascota(String nombreMascota) {
+        this.nombreMascota = nombreMascota;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
+    }
+
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public void setFechaRegistro(String fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
+    public void setVacunas(ArrayList<String> vacunas) {
+        this.vacunas = vacunas;
+    }
+
+    public void setAlergias(ArrayList<String> alergias) {
+        this.alergias = alergias;
+    }
+
+    public void setEnfermedades(ArrayList<String> enfermedades) {
+        this.enfermedades = enfermedades;
+    }
+
+    public void setCastrada(boolean castrada) {
+        this.castrada = castrada;
+    }
+
+    public void setGestante(boolean gestante) {
+        this.gestante = gestante;
+    }
+    
 }
