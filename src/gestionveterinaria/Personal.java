@@ -8,7 +8,7 @@ public class Personal {
     private String puesto;
     private String correo;
     private String horario;
-
+    private boolean disponible;
     private static ArrayList<Personal> personalList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
@@ -18,14 +18,16 @@ public class Personal {
         this.puesto = "";
         this.correo = "";
         this.horario = "";
+        this.disponible = true;
     }
 
     // Constructor con parámetros
-    public Personal(String nombre, String puesto, String correo, String horario) {
+    public Personal(String nombre, String puesto, String correo, String horario, Boolean disponible) {
         this.nombre = nombre;
         this.puesto = puesto;
         this.correo = correo;
         this.horario = horario;
+        this.disponible = disponible;
     }
 
     // Getters y setters para los atributos de Personal
@@ -37,11 +39,58 @@ public class Personal {
     public void setCorreo(String correo) { this.correo = correo; }
     public String getHorario() { return horario; }
     public void setHorario(String horario) { this.horario = horario; }
+    public Boolean getDisponibilidad() { return disponible; }
+    public void setDisponible(Boolean disponible) { this.disponible = true; }
 
     // Sobrescribir toString para mostrar información del personal
     @Override
     public String toString() {
-        return "Nombre: " + nombre + ", Puesto: " + puesto + ", Correo: " + correo + ", Horario: " + horario;
+        return "Nombre: " + nombre + ", Puesto: " + puesto + ", Correo: " + correo + ", Horario: " + horario + ", Disponibilidad: " + disponible;
+    }
+    
+    public boolean isDisponible() {
+        return disponible;
+    }
+    
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+    
+    public static boolean isEspecialistaRegistrado(String nombreEspecialista) {
+        for (Personal p : personalList) {
+            if (p.getNombre().equals(nombreEspecialista)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static boolean especialistaDisponible(String nombreEspecialista) {
+        for (Personal p : personalList) {
+            if (p.getNombre().equals(nombreEspecialista) && p.isDisponible()) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static void marcarEspecialistaNoDisponible(String nombreEspecialista) {
+        for (Personal p : personalList) {
+            if (p.getNombre().equals(nombreEspecialista)) {
+                p.setDisponible(false);
+                break;
+            }
+        }
+    }
+
+    // Método para marcar al especialista como disponible nuevamente
+    public static void marcarEspecialistaDisponible(String nombreEspecialista) {
+        for (Personal p : personalList) {
+            if (p.getNombre().equals(nombreEspecialista)) {
+                p.setDisponible(true);
+                break;
+            }
+        }
     }
 
     // Método para iniciar el menú de personal
@@ -88,8 +137,8 @@ public class Personal {
         String correo = scanner.nextLine();
 
         String horario = seleccionarHorario(puesto);
-
-        personalList.add(new Personal(nombre, puesto, correo, horario));
+        
+        personalList.add(new Personal(nombre, puesto, correo, horario, true));
         System.out.println("\nPersonal registrado exitosamente");
         System.out.println("\n");
     }
@@ -166,7 +215,8 @@ public class Personal {
         System.out.println("\t------------------------------------------------------");
         for (int i = 0; i < personalList.size(); i++) {
             Personal empleado = personalList.get(i);
-            System.out.println("\t" + (i + 1) + "\t" + empleado.getNombre() + "\t\t" + empleado.getPuesto() + "\t\t" + empleado.getHorario());
+            String disponibilidad = empleado.isDisponible() ? "Disponible" : "No disponible";
+            System.out.println("\t" + (i + 1) + "\t" + empleado.getNombre() + "\t\t" + empleado.getPuesto() + "\t\t" + empleado.getHorario() + "\t\t" + disponibilidad);
         }
     }
 }
