@@ -27,7 +27,6 @@ public class Personal {
         this.horario = horario;
         this.disponible = disponible;
     }
-
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
     public String getPuesto() { return puesto; }
@@ -88,16 +87,28 @@ public class Personal {
         }
     }
 
+=======
+    public String getCorreo() { return correo; }
+    public void setCorreo(String correo) { this.correo = correo; }
+    public String getHorario() { return horario; }
+    public void setHorario(String horario) { this.horario = horario; }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + ", Puesto: " + puesto + ", Correo: " + correo + ", Horario: " + horario;
+    }
     public void iniciarMenu() {
         int opcion;
         do {
             System.out.println("\n------ Menu Personal ------");
             System.out.println("1. Registrar nuevo personal");
             System.out.println("2. Editar personal");
+
             System.out.println("3. Horarios del personal");
             System.out.println("4. Volver");
             System.out.println("---------------------------");
             System.out.print("\n-> ");
+
             opcion = scanner.nextInt();
             scanner.nextLine();
 
@@ -127,12 +138,14 @@ public class Personal {
 
         String puesto = seleccionarPuesto();
         
+
         System.out.print("\nTelefono: ");
         String telefono = scanner.nextLine();
 
         String horario = seleccionarHorario(puesto);
         
         personalList.add(new Personal(nombre, puesto, telefono, horario, true));
+
         System.out.println("\nPersonal registrado exitosamente");
         System.out.println("\n");
     }
@@ -144,6 +157,7 @@ public class Personal {
             System.out.println("1. Esteticista");
             System.out.println("2. Medico Veterinario");
             System.out.print("-> ");
+
             opcion = scanner.nextInt();
             scanner.nextLine();
 
@@ -158,18 +172,25 @@ public class Personal {
         System.out.println("\nSeleccione el turno: ");
         System.out.println("1. Manana");
         System.out.println("2. Tarde");
+
         System.out.print("-> ");
+
         int turno = scanner.nextInt();
         scanner.nextLine();
         
         if (turno == 1) { 
+
             if (puesto.equals("Medico Veterinario")) {
+
+
                 return "8AM, 9:30AM, 11AM"; 
             } else {
                 return "8AM, 10AM";
             }
         } else { // Tarde
+
             if (puesto.equals("Medico Veterinario")) {
+
                 return "1:30PM, 3PM, 4:30PM";
             } else {
                 return "1PM, 3PM";
@@ -195,6 +216,7 @@ public class Personal {
             empleado.setPuesto(nuevoPuesto);
             String nuevoHorario = seleccionarHorario(nuevoPuesto);
             empleado.setHorario(nuevoHorario);
+
             System.out.println("Empleado editado exitosamente");
             scanner.nextLine();
         } else {
@@ -210,6 +232,8 @@ public class Personal {
             Personal empleado = personalList.get(i);
             String disponibilidad = empleado.isDisponible() ? "Disponible" : "No disponible";
             System.out.println("\t" + (i + 1) + "\t" + empleado.getNombre() + "\t\t" + empleado.getPuesto() + "\t\t" + empleado.getHorario() + "\t\t" + disponibilidad);
+
+            System.out.println("\tEmpleado editado exitosamente");
         }
     }
 }

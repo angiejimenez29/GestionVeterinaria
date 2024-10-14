@@ -47,7 +47,7 @@ public class Administrador {
         this.clienteUsuarios = new ArrayList<>();
         this.clienteContras = new ArrayList<>();
         this.personal = new Personal();
-        
+
         adminUsuarios.add("admin");
         adminContras.add("123");
         
@@ -339,7 +339,7 @@ private boolean iniciarSesionCliente(String usuario, String contrasena, Scanner 
 
             switch (opcion) {
                 case 1:
-                    Cita.agendarCita(scanner);
+                    
                     break;
                 case 2:
                     Cita.modificarCita(scanner);
@@ -397,6 +397,7 @@ private boolean iniciarSesionCliente(String usuario, String contrasena, Scanner 
             default:
                 System.out.println("Opcion no valida");
         }
+
     }
 }
 
@@ -408,8 +409,9 @@ private void cerrarSesionCliente(){
     System.out.println("Cerrando sesión del cliente...");
     clienteActual = null;
 }
-    public static void main(String[] args) {
+public static void main(String[] args) {
         Administrador administrador = new Administrador();
         administrador.iniciarPrograma();
-    }
+}
+}
 }

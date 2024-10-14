@@ -22,11 +22,13 @@ public class Cita {
         System.out.println("Cita el " + fecha + " para la mascota: " + mascotaNombre + " con el especialista " + especialista + " para " + tipoCita);
     }
 
-    public static void agendarCita(Scanner scanner) {
+    public static void agendarCita(Scanner scanner, List<Personal> personalList) {
+
         System.out.print("Fecha de la cita (d/m): ");
         String fecha = scanner.nextLine();
         System.out.print("Nombre de la mascota: ");
         String mascotaNombre = scanner.nextLine();
+
         if (!Administrador.isMascotaRegistrada(mascotaNombre)) {
             System.out.println("La mascota no se encuentra registrada.");
             return;
@@ -103,7 +105,7 @@ public class Cita {
         Cita cita=citas.get(i);
         Personal.marcarEspecialistaDisponible(cita.especialista);
         citas.remove(i);
-        System.out.println("Cita cancelada con exito.");
+        System.out.println("Cita cancelada con exito");
     }
 
     public static void verHistorialCitas() {
