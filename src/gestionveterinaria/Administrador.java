@@ -17,6 +17,7 @@ public class Administrador {
     private ArrayList<String> clienteContras;
     private Cita cita;
     private Personal personal;
+    private List<String> horasDisponibles = new ArrayList<>();
     private static List<String> mascotasRegistradas = new ArrayList<>();
     private Cliente clienteActual = null;
     private Map<String, Cliente> mascotaClienteMap;
@@ -41,12 +42,12 @@ public class Administrador {
     public Administrador() {
         this.clientes = new ArrayList<>();
         this.mascotas = new ArrayList<>();
-        mascotaClienteMap = new HashMap<>();
+        this.mascotaClienteMap = new HashMap<>();
         this.adminUsuarios = new ArrayList<>();
         this.adminContras = new ArrayList<>();
         this.clienteUsuarios = new ArrayList<>();
         this.clienteContras = new ArrayList<>();
-        this.personal = new Personal();
+        this.personal = new Personal("nombre", "puesto", "telefono", horasDisponibles);
 
         adminUsuarios.add("admin");
         adminContras.add("123");
@@ -296,13 +297,13 @@ private boolean iniciarSesionCliente(String usuario, String contrasena, Scanner 
                     registrarAdministrador(scanner);
                     break;
                 case 3:
-                    Cita.verHistorialCitas();
+                    Cita.verHistorialCitas(true, "", "");
                     break;
                 case 4:
                     HistorialMedico.buscarHistorial(mascotas, mascotaClienteMap, scanner); 
                     break;
                 case 5:
-                    menuCitas(scanner);
+                    Cita.iniciarMenu(true, "", "");
                     break;
                 case 6:
                     menuPersonal(scanner);
@@ -323,38 +324,6 @@ private boolean iniciarSesionCliente(String usuario, String contrasena, Scanner 
         personal.iniciarMenu();
     }
     
-    private void menuCitas(Scanner scanner) {
-        int opcion;
-        do {
-            System.out.println("\n--- Citas ---");
-            System.out.println("1. Agendar cita");
-            System.out.println("2. Modificar cita");
-            System.out.println("3. Cancelar cita");
-            System.out.println("4. Volver");
-            System.out.println("------------------");
-            System.out.print("\nSeleccione una opcion: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
-            System.out.println("\n");
-
-            switch (opcion) {
-                case 1:
-                    
-                    break;
-                case 2:
-                    Cita.modificarCita(scanner);
-                    break;
-                case 3:
-                    Cita.cancelarCita(scanner);
-                    break;
-                case 4:
-                    System.out.println("");
-                    break;
-                default:
-                    System.out.println("Opcion no valida");
-            }
-        } while (opcion != 4);
-    }
 
     private void menuCliente(Scanner scanner, String nombreCliente, String apellidoCliente, Cliente cliente) {
     int opcion;
@@ -366,8 +335,9 @@ private boolean iniciarSesionCliente(String usuario, String contrasena, Scanner 
         System.out.println("2. Agendar cita");
         System.out.println("3. Modificar cita");
         System.out.println("4. Cancelar cita");
-        System.out.println("5. Cerrar sesion");
-        System.out.println("6. Salir del programa");
+        System.out.println("5. Historial de citas");
+        System.out.println("6. Cerrar sesion");
+        System.out.println("7. Salir del programa");
         System.out.println("------------------");
         System.out.print("\nSeleccione una opcion: ");
         opcion = scanner.nextInt();
@@ -379,19 +349,22 @@ private boolean iniciarSesionCliente(String usuario, String contrasena, Scanner 
                 HistorialMedico.buscarHistorialCliente(cliente.getMascotas(), cliente, scanner);;
                 break;
             case 2:
-                Cita.agendarCita(scanner);
+                Cita.agendarCita(false, nombreCliente, apellidoCliente);
                 break;
             case 3:
-                Cita.modificarCita(scanner);
+                Cita.editarCita(false, nombreCliente, apellidoCliente);
                 break;
             case 4:
-                Cita.cancelarCita(scanner);
+                Cita.cancelarCita(false, nombreCliente, apellidoCliente);
                 break;
             case 5:
+                Cita.verHistorialCitas(false, nombreCliente, apellidoCliente);
+                break;
+            case 6:
                 cerrarSesionCliente();
                 seguir=false;               
                 break;
-            case 6:
+            case 7:
                 System.out.println("Saliendo del programa...");
                 System.exit(0);
             default:
@@ -412,6 +385,5 @@ private void cerrarSesionCliente(){
 public static void main(String[] args) {
         Administrador administrador = new Administrador();
         administrador.iniciarPrograma();
-}
 }
 }
