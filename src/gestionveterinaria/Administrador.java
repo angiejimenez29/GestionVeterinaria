@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class Administrador {
     private ArrayList<Cliente> clientes;
     private ArrayList<Mascota> mascotas;
