@@ -210,6 +210,10 @@ public class Personal {
             Personal empleado = personalList.get(i);
             String disponibilidad = empleado.isDisponible() ? "Disponible" : "No disponible";
             System.out.println("\t" + (i + 1) + "\t" + empleado.getNombre() + "\t\t" + empleado.getPuesto() + "\t\t" + empleado.getHorario() + "\t\t" + disponibilidad);
+        System.out.println("\tEmpleado editado exitosamente");
+        scanner.nextLine();
         }
     }
 }
+
+

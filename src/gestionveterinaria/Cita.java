@@ -27,7 +27,7 @@ public class Cita {
         String fecha = scanner.nextLine();
         System.out.print("Nombre de la mascota: ");
         String mascotaNombre = scanner.nextLine();
-        if (!Administrador.isMascotaRegistrada(mascotaNombre)) {
+        if (!Mascota.isMascotaRegistrada(mascotaNombre)) {
             System.out.println("La mascota no se encuentra registrada.");
             return;
         }
@@ -42,6 +42,7 @@ public class Cita {
         
         if (!Personal.isEspecialistaRegistrado(especialista) || !Personal.especialistaDisponible(especialista)) {
             System.out.println("El especialista no esta registrado o no se encuentra disponible.");
+        
             return;
         }
 
@@ -75,7 +76,7 @@ public class Cita {
             return;
         }
 
-        if (!nuevoEspecialista.equals(cita.especialista) || !Personal.especialistaDisponible(nuevoEspecialista)) {
+        if (!nuevoEspecialista.equals(cita.especialista) && !Personal.especialistaDisponible(nuevoEspecialista)) {
             System.out.println("Eligio el mismo especialista o el nuevo especialista no esta disponible.");
             return;
         }
@@ -106,7 +107,7 @@ public class Cita {
         System.out.println("Cita cancelada con exito.");
     }
 
-    public static void verHistorialCitas() {
+    public static void HistorialCitas() {
         System.out.println("\n----- Historial de citas -----");
         for (int i = 0; i < citas.size(); i++) {
             System.out.print((i + 1) + ". ");

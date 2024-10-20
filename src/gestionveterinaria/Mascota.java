@@ -2,8 +2,13 @@ package gestionveterinaria;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Mascota {
+    private Scanner scanner = new Scanner(System.in);
     private String nombreMascota;
     private int edad;
     private String especie;
@@ -21,11 +26,15 @@ public class Mascota {
     private boolean gestante;
     private Cliente cliente;
     private ArrayList<String> historialMedico;
+    private static ArrayList<String> mascotasRegistradas = new ArrayList<>();
+    private Map<String, Cliente> mascotaClienteMap = new HashMap<>();
+    private ArrayList<Mascota> mascotas = new ArrayList<>();
+    
     
     private static final String[] vacunasPerro = {"Sextuple (DHPPi+L)", "Quintuple (DHPPi)", "Triple (DHP)", "Antirrabica", "Tos de las Perreras"};
     private static final String[] vacunasGato = {"Cuadruple (V4)", "Triple (V3)", "Antirrabica", "Leucemia felina", "Clamidiosis"};
     private static final String[] vacunasConejo = {"Mixomatosis", "Enfermedad hemorrágica viral", "Pasteurelosis"};
-    
+
     private static final String[] alergiasPerro = {"Polen de pasto", "Picaduras de pulgas", "Pollo", "Penicilina", "Frutos secos", "Lactosa"};
     private static final String[] alergiasGato = {"Polen de flores", "Picaduras de pulgas", "Pescado", "Lactosa"};
     private static final String[] alergiasConejo = {"Heno de alfalfa", "Polen de flores", "Frutos secos"};
@@ -46,23 +55,163 @@ public class Mascota {
         this.sexo = sexo;
         this.color = color;
         this.peso = peso;
+        this.observaciones = observaciones;
+        this.castrada = castrada;
+        this.gestante = gestante;
         this.fechaNacimiento = fechaNacimiento;
         this.fechaRegistro = fechaRegistro;
         this.vacunas = new ArrayList<>(vacunas);
         this.alergias = new ArrayList<>(alergias);
         this.enfermedades = new ArrayList<>(enfermedades); 
-        this.observaciones = observaciones;
-        this.castrada = castrada;
-        this.gestante = gestante;
-        this.cliente = cliente;
-        this.historialMedico = new ArrayList<>();
+        this.historialMedico = new ArrayList<>();  
+        this.mascotas = new ArrayList<>();
     }
+    
+    public Mascota(){
+        this.mascotas = new ArrayList<>();
+    }
+    
     public Cliente getCliente(){
         return cliente;
     }
     
-    public void agregarHistorialMedico(String entrada) {
-        historialMedico.add(entrada);
+    public void registroMascota(){
+        ArrayList<Cliente> clientes = Cliente.getClientes();
+        Cliente.mostrarClientes(); // Mostrar la lista de clientes antes de registrar la mascota
+        System.out.print("Elige el cliente: ");
+        int opcionCliente = scanner.nextInt();
+        scanner.nextLine();
+        if (opcionCliente < 1 || opcionCliente > clientes.size()) {
+            System.out.println("Opción inválida. Intenta nuevamente.");
+            return;
+        }
+        Cliente clienteSeleccionado = clientes.get(opcionCliente - 1);
+        System.out.println("Cliente seleccionado: " + clienteSeleccionado.getNombre());
+        
+        while (true) {
+        System.out.println("\n| Mascota |");
+        scanner.nextLine();
+        System.out.print("Nombre: ");
+        String nombreMascota = scanner.nextLine();
+        System.out.print("Especie: ");
+        String especie = scanner.nextLine();
+        System.out.print("Raza: ");
+        String raza = scanner.nextLine();
+        System.out.print("Edad: ");
+        int edad = scanner.nextInt();
+        scanner.nextLine();
+        
+        System.out.print("Sexo: ");
+        String sexo = "";
+        while (true) {
+            System.out.print("| (1) Macho  | (2) Hembra  |");
+            System.out.print("-> ");
+            int opcionSexo = scanner.nextInt();
+            scanner.nextLine();
+            if (opcionSexo == 1) {
+                sexo = "Macho";
+                break;
+            } else if (opcionSexo == 2) {
+                sexo = "Hembra";
+                break;
+            } else {
+                System.out.println("Opcion no valida");
+            }
+        }
+        
+        boolean esCastrada = false;
+        while (true) {
+            System.out.print("Castrado: ");
+            System.out.print("| (1) Si  | (2) No  |");
+            System.out.print("-> ");
+            int opcionCastracion = scanner.nextInt();
+            scanner.nextLine();
+            if (opcionCastracion == 1) {
+                esCastrada = true;
+                break;
+            } else if (opcionCastracion == 2) {
+                esCastrada = false;
+                break;
+            } else {
+                System.out.println("Opcion no valida");
+            }
+        }
+
+        boolean esGestante = false;
+        if (!esCastrada && sexo.equals("Hembra")) {
+            while (true) {
+                System.out.print("Gestante: ");
+                System.out.print("| (1) Si  | (2) No  |");
+                System.out.print("-> ");
+                int opcionGestante = scanner.nextInt();
+                scanner.nextLine();
+                if (opcionGestante == 1) {
+                    esGestante = true;
+                    break;
+                } else if (opcionGestante == 2) {
+                    esGestante = false;
+                    break;
+                } else {
+                    System.out.println("Opcion no valida");
+                }
+            }
+        }
+        
+        System.out.print("Color: ");
+        String color = scanner.nextLine();
+        System.out.print("Peso(en kg): ");
+        double peso = scanner.nextDouble();
+        scanner.nextLine();
+        System.out.print("Fecha de nacimiento: ");
+        String fechaNacimiento = scanner.nextLine();
+        System.out.print("Observaciones: ");
+        String observaciones = scanner.nextLine();
+        
+        // FECHA ACTUAL
+        LocalDate fechaActual = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy");
+        String fechaRegistro = fechaActual.format(formatter);
+
+        // Crear mascota y asignar cliente
+        Mascota mascota = new Mascota(nombreMascota, especie, raza, edad, sexo, 
+                color, peso, fechaNacimiento, fechaRegistro, new ArrayList<>(),
+                new ArrayList<>(), new ArrayList<>(), observaciones, esCastrada, esGestante, clienteSeleccionado);
+        
+        mascota.gestionarVacunas(scanner);
+        mascota.gestionarAlergias(scanner);
+        mascota.gestionarEnfermedades(scanner);
+        clienteSeleccionado.agregarMascota(mascota);
+        this.mascotas.add(mascota);
+        mascotaClienteMap.put(mascota.getNombreMascota(), clienteSeleccionado);
+        
+        System.out.println("Cliente seleccionado: " + clienteSeleccionado.getNombre());
+        System.out.println("Mascota registrada: " + mascota.getNombreMascota());
+        System.out.println("Lista de mascotas del cliente: " + clienteSeleccionado.getMascotas());
+        System.out.println("Mapa de mascotas y clientes: " + mascotaClienteMap);
+        int opcionAgregar = 0;
+        while (true) {
+            System.out.print("Agregar otra mascota: ");
+            System.out.print("| (1) Si  | (2) No  |");
+            System.out.print("-> ");
+            opcionAgregar = scanner.nextInt();
+            scanner.nextLine(); 
+            if (opcionAgregar == 1) {
+                break; 
+            } else if (opcionAgregar == 2) {
+                return; 
+            } else {
+                System.out.println("Opción no válida. Intente nuevamente.");
+            }
+        }
+    }
+    }
+    
+    public static boolean isMascotaRegistrada(String nombreMascota) {
+        return mascotasRegistradas.contains(nombreMascota);
+    }
+    
+    public void agregarHistorialMedico(String registro) {
+        historialMedico.add(registro);
     }
 
     public ArrayList<String> getHistorialMedico() {
