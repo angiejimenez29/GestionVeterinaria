@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
-
+//ksjkasjihd9djahb
 public class Administrador {
     private ArrayList<Cliente> clientes;
     private ArrayList<Mascota> mascotas;
