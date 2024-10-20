@@ -2,8 +2,6 @@ package gestionveterinaria;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class HistorialMedico {
     private Scanner scanner;

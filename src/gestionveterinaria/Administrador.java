@@ -5,7 +5,6 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
-// A MASTER
 
 public class Administrador {
     private ArrayList<Cliente> clientes;
