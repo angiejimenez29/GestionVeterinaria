@@ -68,6 +68,7 @@ public class Cita {
         String apellidoCliente = isAdmin ? solicitarDato("Apellido del cliente") : clienteApellido;
 
         System.out.print("Nombre de la mascota: ");
+      
         String nombreMascota = scanner.nextLine();
 
         // Seleccionar tipo de cita
@@ -95,6 +96,7 @@ public class Cita {
         String nombreEspecialista = seleccionarEspecialista(tipoCita);
         if (nombreEspecialista.isEmpty()) {
             System.out.println("No se pudo agendar la cita. No hay especialistas disponibles.");
+
             return;
         }
 
@@ -116,6 +118,7 @@ public class Cita {
         
         if (seleccionHora < 1 || seleccionHora > horasDisponibles.size()) {
             System.out.println("Selección no válida. Intente de nuevo.");
+
             return;
         }
 
@@ -162,6 +165,7 @@ public class Cita {
         String nuevoTipoCita = scanner.nextLine();
         if (!nuevoTipoCita.isEmpty()) {
             cita.tipoCita = nuevoTipoCita;
+
         }
 
         System.out.print("Nuevo turno (Manana/Tarde) (Enter para mantener): ");
@@ -196,6 +200,7 @@ public class Cita {
         System.out.println("Cita eliminada exitosamente.");
     }
 
+
     public static void verHistorialCitas(boolean isAdmin, String clienteNombre, String clienteApellido) {
         System.out.println("\n------ Citas ------");
         for (int i = 0; i < citasList.size(); i++) {
@@ -219,6 +224,7 @@ public class Cita {
                 (tipoCita.equalsIgnoreCase("Consulta Medica") && p.getPuesto().equals("Medico Veterinario"))) {
                 especialistasDisponibles.add(p);
             }
+
         }
 
         if (especialistasDisponibles.isEmpty()) {

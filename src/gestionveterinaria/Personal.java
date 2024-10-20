@@ -165,9 +165,11 @@ public class Personal {
         System.out.println("\t--------------------------------------------------------------------------------");
         for (int i = 0; i < personalList.size(); i++) {
             Personal empleado = personalList.get(i);
+
             String horas = String.join(", ", empleado.getHorasDisponibles());
             System.out.println("\t" + (i + 1) + "\t" + empleado.getNombre() + "\t\t" + empleado.getPuesto() + "\t\t" + empleado.getTelefono() + "\t\t" + horas);
     }
 }
 
 }
+

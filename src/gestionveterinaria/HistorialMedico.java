@@ -6,17 +6,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HistorialMedico {
+    private Scanner scanner;
     private Mascota mascota;
     private Cliente cliente;
 
     public HistorialMedico(Mascota mascota, Cliente cliente) {
         this.mascota = mascota;
         this.cliente = cliente;
+        this.scanner = scanner;
     }
 
     public void mostrarHistorial() {
         Scanner scanner = new Scanner(System.in);
-        
+        System.out.println("--Historial de " + mascota.getNombreMascota()+"--");
         System.out.println("Nombre del cliente: " + cliente.getNombre());
         System.out.println("Nombre de la mascota: " + mascota.getNombreMascota());
         System.out.println("Especie: " + mascota.getEspecie());
@@ -79,42 +81,71 @@ public class HistorialMedico {
     
     public static void buscarHistorialCliente(ArrayList<Mascota> mascotas, Cliente cliente, Scanner scanner) {
         System.out.println("\n----- Historial Medico -----");
-        System.out.print("\nNombre de la mascota: ");
-        String nombreMascota = scanner.nextLine();
-
-        Mascota mascotaEncontrada = null;
-        for (Mascota mascota : cliente.getMascotas()) { // Solo busca en las mascotas del cliente
-            if (mascota.getNombreMascota().equalsIgnoreCase(nombreMascota)) {
-                mascotaEncontrada = mascota;
-                break;
-            }
+        ArrayList<Mascota> mascotasCliente = cliente.getMascotas();
+        if (mascotasCliente.isEmpty()) {
+            System.out.println("El cliente no tiene mascotas registradas.");
+            return;
         }
-
-        if (mascotaEncontrada != null) {
-            HistorialMedico historial = new HistorialMedico(mascotaEncontrada, cliente);
-            historial.mostrarHistorialCliente(); // Solo muestra el historial
-        } else {
-            System.out.println("Mascota no encontrada.");
+        System.out.println("Mascotas registradas de " + cliente.getNombre() + " " + cliente.getApellido() + ":");
+        for (int i = 0; i < mascotasCliente.size(); i++) {
+            Mascota mascota = mascotasCliente.get(i);
+            System.out.println((i + 1) + ". " + mascota.getNombreMascota());
         }
+        System.out.print("\nSeleccione el número de la mascota: ");
+        int opcionMascota = scanner.nextInt();
+        scanner.nextLine(); 
+        if (opcionMascota < 1 || opcionMascota > mascotasCliente.size()) {
+            System.out.println("Opción inválida. Intente nuevamente.");
+            return;
+        }
+        Mascota mascotaSeleccionada = mascotasCliente.get(opcionMascota - 1);
+        HistorialMedico historial = new HistorialMedico(mascotaSeleccionada, cliente);
+        historial.mostrarHistorialCliente();
     }
     
-    public static void buscarHistorial(ArrayList<Mascota> mascotas, Map<String, Cliente> mascotaClienteMap, Scanner scanner) {
-        System.out.println("\n----- Historial Medico -----");
-        System.out.print("\nNombre de la mascota: ");
-        String nombreMascota = scanner.nextLine();
-
-        Mascota mascotaEncontrada = null;
-        Cliente clienteEncontrado = mascotaClienteMap.get(nombreMascota);
-        for (Mascota mascota : mascotas) {
-            if (mascota.getNombreMascota().equalsIgnoreCase(nombreMascota)) {
-                mascotaEncontrada = mascota;
-                break;
-            }
+    public static void buscarHistorial(ArrayList<Mascota> mascotas, Scanner scanner) {
+        System.out.println("\n----- Historial Medico -----\n");
+        ArrayList<Cliente> clientes = Cliente.getClientes();
+        if (clientes.isEmpty()) {
+            System.out.println("\nNo hay clientes registrados.");
+            return;
         }
-
+        System.out.println("\n--- Lista de Clientes ---");
+        for (int i = 0; i < clientes.size(); i++) {
+            Cliente cliente = clientes.get(i);
+            System.out.println((i + 1) + ". " + cliente.getNombre() + " " + cliente.getApellido());
+        }
+        System.out.print("\nSeleccione el cliente: ");
+        int opcionCliente = scanner.nextInt();
+        scanner.nextLine();
+        if (opcionCliente < 1 || opcionCliente > clientes.size()) {
+            System.out.println("Intente nuevamente.");
+            return;
+        }
+        Cliente clienteSeleccionado = clientes.get(opcionCliente - 1);
+        System.out.println( "\n>>> " + clienteSeleccionado.getNombre() + " " + clienteSeleccionado.getApellido() + ":");
+        
+        ArrayList<Mascota> mascotasCliente = clienteSeleccionado.getMascotas();
+        if (mascotasCliente.isEmpty()) {
+            System.out.println("\nNo tiene mascotas registradas.");
+            return;
+        }
+        System.out.println("\n--- Mascotas ---\n");
+        for (int i = 0; i < mascotasCliente.size(); i++) {
+            Mascota mascota = mascotasCliente.get(i);
+            System.out.println((i + 1) + ". " + mascota.getNombreMascota());
+        }
+        System.out.print("\nSeleccione la mascota: ");
+        int opcionMascota = scanner.nextInt();
+        scanner.nextLine();
+        if (opcionMascota < 1 || opcionMascota > mascotasCliente.size()) {
+            System.out.println("Intente nuevamente.");
+            return;
+        }
+        Mascota mascotaEncontrada = mascotasCliente.get(opcionMascota - 1);
         if (mascotaEncontrada != null) {
-            HistorialMedico historial = new HistorialMedico(mascotaEncontrada, clienteEncontrado);
-            historial.mostrarHistorialAdmin(); 
+            HistorialMedico historial = new HistorialMedico(mascotaEncontrada, clienteSeleccionado);
+            historial.mostrarHistorialAdmin();
         } else {
             System.out.println("Mascota no encontrada.");
         }
