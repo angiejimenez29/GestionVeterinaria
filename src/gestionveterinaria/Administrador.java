@@ -5,8 +5,6 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.HashSet;
-import java.util.Set;
 
 
 public class Administrador {
@@ -45,7 +43,7 @@ public class Administrador {
         this.adminUsuarios = new ArrayList<>();
         this.adminContras = new ArrayList<>();
 
-        this.personal = new Personal(); 
+        this.personal = new Personal("nombre", "puesto", "telefono", horasDisponibles); 
 
         adminUsuarios.add("admin");
         adminContras.add("123");
@@ -219,13 +217,13 @@ public class Administrador {
 
             switch (opcion) {
                 case 1:
-                    Cita.agendarCita(scanner);
+                    Cita.agendarCita(true, "", "");
                     break;
                 case 2:
-                    Cita.modificarCita(scanner);
+                    Cita.editarCita(true, "", "");
                     break;
                 case 3:
-                    Cita.cancelarCita(scanner);
+                    Cita.cancelarCita(true, "", "");
                     break;
                 case 4:
                     System.out.println("");

@@ -53,13 +53,13 @@ public class Cliente {
                     HistorialMedico.buscarHistorialCliente(cliente.getMascotas(), cliente, scanner);;
                     break;
                 case 2:
-                    Cita.agendarCita(scanner);
+                    Cita.agendarCita(false, nombreCliente, apellidoCliente);
                     break;
                 case 3:
-                    Cita.modificarCita(scanner);
+                    Cita.editarCita(false, nombreCliente, apellidoCliente);
                     break;
                 case 4:
-                    Cita.cancelarCita(scanner);
+                    Cita.cancelarCita(false, nombreCliente, apellidoCliente);
                     break;
                 case 5:
                     cerrarSesionCliente();
