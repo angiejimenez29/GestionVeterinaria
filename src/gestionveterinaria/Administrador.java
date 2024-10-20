@@ -16,6 +16,7 @@ public class Administrador {
     private ArrayList<String> adminContras;
     private Cita cita;
     private Personal personal;
+    private List<String> horasDisponibles = new ArrayList<>();
     private static List<String> mascotasRegistradas = new ArrayList<>();
     private Map<String, Cliente> mascotaClienteMap;
     private Scanner scanner;
@@ -40,10 +41,12 @@ public class Administrador {
         scanner = new Scanner(System.in);
         this.clientes = new ArrayList<>();
         this.mascotas = new ArrayList<>();
-        mascotaClienteMap = new HashMap<>();
+        this.mascotaClienteMap = new HashMap<>();
         this.adminUsuarios = new ArrayList<>();
         this.adminContras = new ArrayList<>();
+
         this.personal = new Personal(); 
+
         adminUsuarios.add("admin");
         adminContras.add("123");
         this.scanner = new Scanner(System.in);
@@ -233,8 +236,9 @@ public class Administrador {
         } while (opcion != 4);
     }
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
         Administrador administrador = new Administrador();
         administrador.iniciarPrograma();
-    }
+}
+
 }
