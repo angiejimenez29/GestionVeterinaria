@@ -143,7 +143,6 @@ public class Cliente {
     System.out.println("-------------------------------------------------------------------------------------------------");
 
     for (Cliente cliente : clientes) {
-        // Si el cliente no tiene mascotas, continúa con el siguiente
         if (cliente.getMascotas() == null || cliente.getMascotas().isEmpty()) {
             System.out.printf("%-30s %-15s %-15s %-15s %-15s\n", 
                               cliente.getNombre() + " " + cliente.getApellido(), 
