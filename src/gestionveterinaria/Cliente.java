@@ -139,11 +139,9 @@ public class Cliente {
     }
 
     public static void mostrarTablaClientesMascotas() {
-    // Encabezados de la tabla
-    System.out.printf("%-30s %-15s %-15s %-15s %-15s\n", "Cliente", "Mascota", "Raza", "Especie", "Teléfono");
+    System.out.printf("%-30s %-15s %-15s %-15s %-15s\n", "Cliente", "Mascota", "Raza", "Especie", "Telefono");
     System.out.println("-------------------------------------------------------------------------------------------------");
 
-    // Recorrer la lista de clientes y sus mascotas
     for (Cliente cliente : clientes) {
         // Si el cliente no tiene mascotas, continúa con el siguiente
         if (cliente.getMascotas() == null || cliente.getMascotas().isEmpty()) {
@@ -153,7 +151,6 @@ public class Cliente {
             continue;
         }
 
-        // Mostrar la información de las mascotas
         for (Mascota mascota : cliente.getMascotas()) {
             System.out.printf("%-30s %-15s %-15s %-15s %-15s\n", 
                               cliente.getNombre() + " " + cliente.getApellido(), 
@@ -165,7 +162,7 @@ public class Cliente {
     }
 }
     public static ArrayList<Cliente> getClientes() {
-        return clientes; // Proporciona acceso a la lista de clientes
+        return clientes;
     }
 
     public String getNombre() {
@@ -178,7 +175,7 @@ public class Cliente {
 
     public void agregarMascota(Mascota mascota){
         if (mascotas == null) {
-            mascotas = new ArrayList<>(); // Asegurarse de que la lista esté inicializada
+            mascotas = new ArrayList<>();
         }
         mascotas.add(mascota);
     }
