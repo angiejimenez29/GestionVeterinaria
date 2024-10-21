@@ -32,7 +32,6 @@ public class HistorialMedico {
     System.out.println("Fecha de nacimiento: " + mascota.getFechaNacimiento());
     System.out.println("Fecha de registro: " + mascota.getFechaRegistro());
 
-    // Imprimir Vacunas
     System.out.println("\nVacunas:");
     if (mascota.getVacunas().isEmpty()) {
         System.out.println("No hay vacunas registradas.");
@@ -42,7 +41,6 @@ public class HistorialMedico {
         }
     }
 
-    // Imprimir Alergias
     System.out.println("\nAlergias:");
     if (mascota.getAlergias().isEmpty()) {
         System.out.println("No hay alergias registradas.");
@@ -52,7 +50,6 @@ public class HistorialMedico {
         }
     }
 
-    // Imprimir Enfermedades
     System.out.println("\nEnfermedades:");
     if (mascota.getEnfermedades().isEmpty()) {
         System.out.println("No hay enfermedades registradas.");
@@ -62,20 +59,18 @@ public class HistorialMedico {
         }
     }
 
-    // Imprimir Observaciones
     System.out.println("\nObservaciones: " + mascota.getObservaciones());
 
-    // Imprimir Citas
     System.out.println("\n------ Historial de Citas ------");
-    boolean tieneCitas = false; // Para verificar si hay citas
+    boolean tieneCitas = false; 
 
     for (Cita cita : Cita.getCitasList()) {
-        if (cita.getNombreMascota().equals(this.mascota.getNombreMascota())) { // Compara el nombre de la mascota
-            System.out.println("Tipo de Cita: " + cita.getTipoCita() + 
-                            ", Especialista: " + cita.getEspecialista() + 
-                            ", Hora: " + cita.getHora());
-            tieneCitas = true;
-        }
+    if (cita.getNombreMascota().equals(this.mascota.getNombreMascota())) { 
+        System.out.printf("%-20s %-20s %-10s\n", "Tipo de Cita", "Especialista", "Hora");
+        System.out.println("---------------------------------------------------------");
+        System.out.printf("%-20s %-20s %-10s\n", cita.getTipoCita(), cita.getEspecialista(), cita.getHora());
+        tieneCitas = true;
+    }
     }
     if (!tieneCitas) {
         System.out.println("No hay citas registradas para esta mascota.");
@@ -99,21 +94,22 @@ public class HistorialMedico {
     
     public static void buscarHistorialCliente(ArrayList<Mascota> mascotas, Cliente cliente, Scanner scanner) {
         System.out.println("\n----- Historial Medico -----");
+        System.out.print("\n");
+  
         ArrayList<Mascota> mascotasCliente = cliente.getMascotas();
         if (mascotasCliente.isEmpty()) {
             System.out.println("El cliente no tiene mascotas registradas.");
             return;
         }
-        System.out.println("Mascotas registradas de " + cliente.getNombre() + " " + cliente.getApellido() + ":");
         for (int i = 0; i < mascotasCliente.size(); i++) {
             Mascota mascota = mascotasCliente.get(i);
             System.out.println((i + 1) + ". " + mascota.getNombreMascota());
         }
-        System.out.print("\nSeleccione el número de la mascota: ");
+        System.out.print("\n->");
         int opcionMascota = scanner.nextInt();
         scanner.nextLine(); 
         if (opcionMascota < 1 || opcionMascota > mascotasCliente.size()) {
-            System.out.println("Opción inválida. Intente nuevamente.");
+            System.out.println("Opcion invalida. Intente nuevamente.");
             return;
         }
         Mascota mascotaSeleccionada = mascotasCliente.get(opcionMascota - 1);
@@ -122,7 +118,12 @@ public class HistorialMedico {
     }
     
     public static void buscarHistorial(ArrayList<Mascota> mascotas, Scanner scanner) {
-        System.out.println("\n----- Historial Medico -----\n");
+        String asciiArt = """
+ |_  o  _  _|_   _  __  o  _   |    __  _  _|  o  _  _
+ | | | _>   |_  (_) |   | (_|  |   ||| (/ __|  | (_ (_)
+""";
+
+System.out.println(asciiArt);
         ArrayList<Cliente> clientes = Cliente.getClientes();
         if (clientes.isEmpty()) {
             System.out.println("\nNo hay clientes registrados.");
@@ -133,7 +134,7 @@ public class HistorialMedico {
             Cliente cliente = clientes.get(i);
             System.out.println((i + 1) + ". " + cliente.getNombre() + " " + cliente.getApellido());
         }
-        System.out.print("\nSeleccione el cliente: ");
+        System.out.print("\n->");
         int opcionCliente = scanner.nextInt();
         scanner.nextLine();
         if (opcionCliente < 1 || opcionCliente > clientes.size()) {
@@ -141,7 +142,6 @@ public class HistorialMedico {
             return;
         }
         Cliente clienteSeleccionado = clientes.get(opcionCliente - 1);
-        System.out.println( "\n>>> " + clienteSeleccionado.getNombre() + " " + clienteSeleccionado.getApellido() + ":");
         
         ArrayList<Mascota> mascotasCliente = clienteSeleccionado.getMascotas();
         if (mascotasCliente.isEmpty()) {
@@ -153,7 +153,7 @@ public class HistorialMedico {
             Mascota mascota = mascotasCliente.get(i);
             System.out.println((i + 1) + ". " + mascota.getNombreMascota());
         }
-        System.out.print("\nSeleccione la mascota: ");
+        System.out.print("\n->");
         int opcionMascota = scanner.nextInt();
         scanner.nextLine();
         if (opcionMascota < 1 || opcionMascota > mascotasCliente.size()) {
@@ -175,7 +175,7 @@ public class HistorialMedico {
 
     while (editing) {
         System.out.println("\n--- Editar Historial Medico ---");
-        System.out.println("Seleccione el campo que desea editar:");
+        System.out.print("\n");
         System.out.println("1. Nombre de la mascota");
         System.out.println("2. Especie");
         System.out.println("3. Raza");
@@ -329,7 +329,7 @@ public class HistorialMedico {
                         for (int i = 0; i < vacunasDisponibles.length; i++) {
                         System.out.println((i + 1) + ". " + vacunasDisponibles[i]);
                     }
-                        System.out.print("\nSeleccione la nueva vacuna: ");
+                        System.out.print("\n->");
                         int seleccion = scanner.nextInt() - 1;
                         scanner.nextLine();
 
@@ -346,7 +346,7 @@ public class HistorialMedico {
                     break;
                 case 3:
                     System.out.println("\n----- Eliminar Vacunas -----");
-                    System.out.print("\nVacuna a eliminar: ");
+                    System.out.print("\n->");
                     int indiceEliminar = scanner.nextInt() - 1;
                     scanner.nextLine();
                     if (indiceEliminar >= 0 && indiceEliminar < mascota.getVacunas().size()) {
@@ -372,7 +372,7 @@ public class HistorialMedico {
         }
         System.out.println((vacunasDisponibles.length + 1) + ". Otros");
 
-        System.out.print("\nSeleccione la vacuna a agregar: ");
+        System.out.print("\n->");
         int seleccion = scanner.nextInt() - 1;
         scanner.nextLine();
 
@@ -402,7 +402,7 @@ public class HistorialMedico {
                     break;
                 case 2:
                     System.out.println("\n----- Editar Alergias -----");
-                    System.out.print("\nAlergia a editar: ");
+                    System.out.print("\n->");
                     int indiceEditar = scanner.nextInt() - 1;
                     scanner.nextLine();
                     if (indiceEditar >= 0 && indiceEditar < mascota.getAlergias().size()) {
@@ -415,7 +415,7 @@ public class HistorialMedico {
                     break;
                 case 3:
                     System.out.println("\n----- Eliminar Alergias -----");
-                    System.out.print("'\nAlergia a eliminar: ");
+                    System.out.print("\n->");
                     int indiceEliminar = scanner.nextInt() - 1;
                     scanner.nextLine();
                     if (indiceEliminar >= 0 && indiceEliminar < mascota.getAlergias().size()) {
@@ -441,7 +441,7 @@ public class HistorialMedico {
         }
         System.out.println((alergiasDisponibles.length + 1) + ". Otros");
 
-        System.out.print("\nSeleccione la alergia a agregar: ");
+        System.out.print("\n->");
         int seleccion = scanner.nextInt() - 1;
         scanner.nextLine();
 

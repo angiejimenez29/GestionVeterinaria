@@ -77,20 +77,21 @@ public class Mascota {
     
     public void registroMascota(){
         ArrayList<Cliente> clientes = Cliente.getClientes();
-        Cliente.mostrarClientes(); // Mostrar la lista de clientes antes de registrar la mascota
-        System.out.print("Elige el cliente: ");
+        Cliente.mostrarClientes(); 
+        System.out.print("\n");        
+        System.out.print("\n-> ");
         int opcionCliente = scanner.nextInt();
         scanner.nextLine();
         if (opcionCliente < 1 || opcionCliente > clientes.size()) {
-            System.out.println("Opción inválida. Intenta nuevamente.");
+            System.out.println("Opcion"
+                    + "opcion invalida. Intenta nuevamente.");
             return;
         }
         Cliente clienteSeleccionado = clientes.get(opcionCliente - 1);
-        System.out.println("Cliente seleccionado: " + clienteSeleccionado.getNombre());
-        
+        System.out.print("\n");
         while (true) {
+        System.out.print("\n");
         System.out.println("\n| Mascota |");
-        scanner.nextLine();
         System.out.print("Nombre: ");
         String nombreMascota = scanner.nextLine();
         System.out.print("Especie: ");
@@ -183,10 +184,9 @@ public class Mascota {
         clienteSeleccionado.agregarMascota(mascota);
         this.mascotas.add(mascota);
         mascotaClienteMap.put(mascota.getNombreMascota(), clienteSeleccionado);
-        
+        System.out.print("\n");
         System.out.println("Cliente seleccionado: " + clienteSeleccionado.getNombre());
         System.out.println("Mascota registrada: " + mascota.getNombreMascota());
-        System.out.println("Lista de mascotas del cliente: " + clienteSeleccionado.getMascotas());
         int opcionAgregar = 0;
         while (true) {
             System.out.print("Agregar otra mascota: ");
@@ -199,7 +199,7 @@ public class Mascota {
             } else if (opcionAgregar == 2) {
                 return; 
             } else {
-                System.out.println("Opción no válida. Intente nuevamente.");
+                System.out.println("Opcion invalida, intente nuevamente.");
             }
         }
     }
@@ -225,7 +225,7 @@ public class Mascota {
                 System.out.println((i + 1) + ". " + vacunasDisponibles[i]);
             }
             while (true) { 
-                System.out.print("\nIngrese el numero de la vacuna: ");
+                System.out.print("\n-> ");
                 int seleccion = scanner.nextInt();
                 scanner.nextLine();
 
@@ -276,7 +276,7 @@ public class Mascota {
             int opcionOtros = alergiasDisponibles.length + 1;
             System.out.println(opcionOtros + ". Otros");
         while (true) {
-            System.out.print("\nIngrese el numero de la alergia: ");
+            System.out.print("\n-> ");
             int seleccion = scanner.nextInt();
             scanner.nextLine();
             if (seleccion == 0) {
@@ -339,7 +339,7 @@ public class Mascota {
             int opcionOtros = enfermedadesDisponibles.length + 1;
             System.out.println(opcionOtros +". Otros");
         while (true) {
-            System.out.print("\nIngrese la opcion: ");
+            System.out.print("\n-> ");
             int seleccion = scanner.nextInt();
             scanner.nextLine();
             if (seleccion == 0) {

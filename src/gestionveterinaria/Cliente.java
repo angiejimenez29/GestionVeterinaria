@@ -29,8 +29,17 @@ public class Cliente {
         int opcion;
         boolean seguir = true;
         while(seguir){
-            System.out.println("\n----- Cliente -----");
-            System.out.println("\n" + nombreCliente + " " + apellidoCliente);
+            System.out.print("\n");
+            System.out.print("\n");
+            String asciiArt = """
+ __   ___ __   ___ __
+/  |   | |_ |\\| | |_ 
+\\__|___|_|__| | | |__ 
+""";
+
+System.out.println(asciiArt);
+            System.out.println("\nBienvenido/a" + nombreCliente + " " + apellidoCliente);
+            System.out.print("\n");
             System.out.println("1. Historial medico de mis mascotas");
             System.out.println("2. Agendar cita");
             System.out.println("3. Modificar cita");
@@ -38,7 +47,7 @@ public class Cliente {
             System.out.println("5. Cerrar sesion");
             System.out.println("6. Salir del programa");
             System.out.println("------------------");
-            System.out.print("\nSeleccione una opcion: ");
+            System.out.print("\n--> ");
             opcion = scanner.nextInt();
             scanner.nextLine();
             System.out.println("\n");
@@ -70,11 +79,17 @@ public class Cliente {
     }
     
     public void registroCliente(){
-    System.out.println("-------- Registro --------\n");
+    String asciiArt = """
+ _  __ _____ _____ _  _ 
+|_)|_ /__ | (_  | |_)/ \\
+| \\|__\\_|_|___) | | \\\\_/
+""";
+
+System.out.println(asciiArt);
     System.out.println("| Cliente |");
-    System.out.print("Nombres: ");
+    System.out.print("Nombre: ");
     String nombreCliente = scanner.nextLine();
-    System.out.print("Apellidos: ");
+    System.out.print("Apellido: ");
     String apellidoCliente = scanner.nextLine();
     System.out.print("Telefono: ");
     String telefono = scanner.nextLine();
@@ -93,9 +108,11 @@ public class Cliente {
     clienteContras.add(telefono);
     
     System.out.println("\nRegistro exitoso");
+    System.out.print("\n");
     System.out.println("Usuario creado: " + usuario);
     System.out.println("Contrasena: " + telefono);
-    
+            System.out.print("\n");
+            System.out.print("\n");
     }
     
     private String generarUsuario(String nombre, String apellido){
@@ -123,12 +140,22 @@ public class Cliente {
     public static void mostrarClientes() {
     if (clientes.isEmpty()) {
         System.out.println("No hay clientes registrados.");
+        System.out.print("\n");
         return;
     }
 
-    System.out.println("--- Asignar mascota a un cliente ---");
+    String asciiArt = """
+ _  _____ __    _  _        _  __ __ _ ___ _
+|_|(_  | /__|\\||_||_)   |V||_|(_ /  / \\ | |_|
+| |__)_|_\\_|| || || \\   | || |__)\\__\\_/ | | |
+""";
+
+System.out.println(asciiArt);
+System.out.print("\n");
+System.out.println("------- Clientes -------");
     for (int i = 0; i < clientes.size(); i++) {
         Cliente c = clientes.get(i);
+        System.out.print("\n");
         System.out.println((i + 1) + ". " + c.getNombre() + " " + c.getApellido());
     }
     }
@@ -141,7 +168,7 @@ public class Cliente {
         if (cliente.getMascotas() == null || cliente.getMascotas().isEmpty()) {
             System.out.printf("%-30s %-15s %-15s %-15s %-15s\n", 
                               cliente.getNombre() + " " + cliente.getApellido(), 
-                              "No tiene mascotas", "", "", cliente.getTelefono());
+                              "", "", "", cliente.getTelefono());
             continue;
         }
 
