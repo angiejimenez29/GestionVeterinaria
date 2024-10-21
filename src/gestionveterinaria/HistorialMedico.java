@@ -15,53 +15,73 @@ public class HistorialMedico {
     }
 
     public void mostrarHistorial() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("--Historial de " + mascota.getNombreMascota()+"--");
-        System.out.println("Nombre del cliente: " + cliente.getNombre());
-        System.out.println("Nombre de la mascota: " + mascota.getNombreMascota());
-        System.out.println("Especie: " + mascota.getEspecie());
-        System.out.println("Raza: " + mascota.getRaza());
-        System.out.println("Edad: " + mascota.getEdad());
-        System.out.println("Sexo: " + mascota.getSexo());
-        System.out.println("Castrado: " + (mascota.isCastrada() ? "Si" : "No"));
-        if (!mascota.isCastrada() && mascota.getSexo().equals("Hembra")) {
-            System.out.println("Gestante: " + (mascota.isGestante() ? "Si" : "No"));
-        }
-        System.out.println("Color: " + mascota.getColor());
-        System.out.println("Peso: " + mascota.getPeso() + " kg");
-        System.out.println("Fecha de nacimiento: " + mascota.getFechaNacimiento());
-        System.out.println("Fecha de registro: " + mascota.getFechaRegistro());
-        
-        System.out.println("\nVacunas:");
-        if (mascota.getVacunas().isEmpty()) {
-            System.out.println("");
-        } else {
-            for (String vacuna : mascota.getVacunas()) {
-                System.out.println("- " + vacuna);
-            }
-        }
-
-        System.out.println("\nAlergias:");
-        if (mascota.getAlergias().isEmpty()) {
-            System.out.println("");
-        } else {
-            for (String alergia : mascota.getAlergias()) {
-                System.out.println("- " + alergia);
-            }
-        }
-
-        System.out.println("\nEnfermedades:");
-        if (mascota.getEnfermedades().isEmpty()) {
-            System.out.println("");
-        } else {
-            for (String enfermedad : mascota.getEnfermedades()) {
-                System.out.println("- " + enfermedad);
-            }
-        }
-
-        System.out.println("\nObservaciones: " + mascota.getObservaciones());   
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("--Historial de " + mascota.getNombreMascota() + "--");
+    System.out.println("Nombre del cliente: " + cliente.getNombre());
+    System.out.println("Nombre de la mascota: " + mascota.getNombreMascota());
+    System.out.println("Especie: " + mascota.getEspecie());
+    System.out.println("Raza: " + mascota.getRaza());
+    System.out.println("Edad: " + mascota.getEdad());
+    System.out.println("Sexo: " + mascota.getSexo());
+    System.out.println("Castrado: " + (mascota.isCastrada() ? "Si" : "No"));
+    if (!mascota.isCastrada() && mascota.getSexo().equals("Hembra")) {
+        System.out.println("Gestante: " + (mascota.isGestante() ? "Si" : "No"));
     }
-    
+    System.out.println("Color: " + mascota.getColor());
+    System.out.println("Peso: " + mascota.getPeso() + " kg");
+    System.out.println("Fecha de nacimiento: " + mascota.getFechaNacimiento());
+    System.out.println("Fecha de registro: " + mascota.getFechaRegistro());
+
+    // Imprimir Vacunas
+    System.out.println("\nVacunas:");
+    if (mascota.getVacunas().isEmpty()) {
+        System.out.println("No hay vacunas registradas.");
+    } else {
+        for (String vacuna : mascota.getVacunas()) {
+            System.out.println("- " + vacuna);
+        }
+    }
+
+    // Imprimir Alergias
+    System.out.println("\nAlergias:");
+    if (mascota.getAlergias().isEmpty()) {
+        System.out.println("No hay alergias registradas.");
+    } else {
+        for (String alergia : mascota.getAlergias()) {
+            System.out.println("- " + alergia);
+        }
+    }
+
+    // Imprimir Enfermedades
+    System.out.println("\nEnfermedades:");
+    if (mascota.getEnfermedades().isEmpty()) {
+        System.out.println("No hay enfermedades registradas.");
+    } else {
+        for (String enfermedad : mascota.getEnfermedades()) {
+            System.out.println("- " + enfermedad);
+        }
+    }
+
+    // Imprimir Observaciones
+    System.out.println("\nObservaciones: " + mascota.getObservaciones());
+
+    // Imprimir Citas
+    System.out.println("\n------ Historial de Citas ------");
+    boolean tieneCitas = false; // Para verificar si hay citas
+
+    for (Cita cita : Cita.getCitasList()) {
+        if (cita.getNombreMascota().equals(this.mascota.getNombreMascota())) { // Compara el nombre de la mascota
+            System.out.println("Tipo de Cita: " + cita.getTipoCita() + 
+                            ", Especialista: " + cita.getEspecialista() + 
+                            ", Hora: " + cita.getHora());
+            tieneCitas = true;
+        }
+    }
+    if (!tieneCitas) {
+        System.out.println("No hay citas registradas para esta mascota.");
+    }
+}
+
     public void mostrarHistorialCliente() {
         mostrarHistorial();
     }

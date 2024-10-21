@@ -139,7 +139,7 @@ public class Administrador {
                     gestionarClienteYMascota(scanner);
                     break;
                 case 3:
-                    menuCitas(scanner);                   
+                    Cita.iniciarMenu(true, "", "");                   
                     break;
                 case 4:
                     menuPersonal(scanner);                   

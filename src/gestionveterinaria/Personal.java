@@ -98,6 +98,12 @@ public class Personal {
         }
         return new ArrayList<>(horarios); // Se hace una copia para evitar problemas de referencia.
     }
+    
+    public void agregarHoraDisponible(String hora) {
+    if (!horasDisponibles.contains(hora)) {
+        horasDisponibles.add(hora);
+    }
+}
 
     public void iniciarMenu() {
         int opcion;

@@ -187,7 +187,6 @@ public class Mascota {
         System.out.println("Cliente seleccionado: " + clienteSeleccionado.getNombre());
         System.out.println("Mascota registrada: " + mascota.getNombreMascota());
         System.out.println("Lista de mascotas del cliente: " + clienteSeleccionado.getMascotas());
-        System.out.println("Mapa de mascotas y clientes: " + mascotaClienteMap);
         int opcionAgregar = 0;
         while (true) {
             System.out.print("Agregar otra mascota: ");
