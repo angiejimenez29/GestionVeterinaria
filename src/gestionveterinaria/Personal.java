@@ -49,9 +49,10 @@ public class Personal {
         System.out.print("Nombre: ");
         String nombre = scanner.nextLine();
 
-        String puesto = seleccionarPuesto();
         System.out.print("\nTelefono: ");
         String telefono = scanner.nextLine();
+        
+        String puesto = seleccionarPuesto();
 
         List<String> horasDisponibles = seleccionarHorario(puesto);
         personalList.add(new Personal(nombre, puesto, telefono, horasDisponibles));
