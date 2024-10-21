@@ -67,16 +67,16 @@ public class Personal {
         while (true) {
             System.out.println("\nSeleccione el puesto: ");
             System.out.println("1. Esteticista");
-            System.out.println("2. Medico Veterinario");
+            System.out.println("2. Veterinario");
             System.out.print("-> ");
 
             opcion = scanner.nextInt();
             scanner.nextLine();
 
             if (opcion == 1) return "Esteticista";
-            if (opcion == 2) return "Medico Veterinario";
+            if (opcion == 2) return "Veterinario";
 
-            System.out.println("Opción no valida. Por favor, seleccione nuevamente.");
+            System.out.println("Opcion no valida. Por favor, seleccione nuevamente.");
         }
     }
 
@@ -90,11 +90,11 @@ public class Personal {
 
         List<String> horarios = new ArrayList<>();
         if (turno == 1) {
-            horarios = puesto.equals("Medico Veterinario") ? 
+            horarios = puesto.equals("Veterinario") ? 
                 List.of("8AM", "9:30AM", "11AM") : 
                 List.of("8AM", "10AM");
         } else {
-            horarios = puesto.equals("Medico Veterinario") ? 
+            horarios = puesto.equals("Veterinario") ? 
                 List.of("1:30PM", "3PM", "4:30PM") : 
                 List.of("1PM", "3PM");
         }
@@ -110,7 +110,13 @@ public class Personal {
     public void iniciarMenu() {
         int opcion;
         do {
-            System.out.println("\n------ Menu Personal ------");
+            String asciiArt = """
+                _                     
+|V| _ __       |_) _  __ _  _ __  _  |
+| |(/_| ||_|   |  (/_ | _> (_)| |(_| |
+""";
+
+System.out.println(asciiArt);
             System.out.println("1. Registrar nuevo personal");
             System.out.println("2. Editar personal");
             System.out.println("3. Ver lista del personal");
@@ -135,7 +141,7 @@ public class Personal {
                     System.out.println("Volviendo al menu principal...");
                     break;
                 default:
-                    System.out.println("\nOpción invalida.");
+                    System.out.println("\nOpcion invalida.");
             }
         } while (opcion != 4);
     }
@@ -168,16 +174,23 @@ public class Personal {
     }
 
     private static void verListaPersonal() {
-        System.out.println("\n\t\t\t-------- LISTA DE PERSONAL --------");
-        System.out.println("\tID\tNombre\t\tPuesto\t\tTelefono\tHoras Disponibles");
-        System.out.println("\t--------------------------------------------------------------------------------");
+        System.out.print("\n");
+        System.out.print("\n");
+        System.out.print("\n");
+        System.out.print("\n");
+        System.out.println("-------------------------------- LISTA DE PERSONAL ---------------------------------");
+        System.out.println("ID\tNombre\t\tPuesto\t\tTelefono\tHoras Disponibles");
+        System.out.println("------------------------------------------------------------------------------------");
         for (int i = 0; i < personalList.size(); i++) {
             Personal empleado = personalList.get(i);
-
             String horas = String.join(", ", empleado.getHorasDisponibles());
-            System.out.println("\t" + (i + 1) + "\t" + empleado.getNombre() + "\t\t" + empleado.getPuesto() + "\t\t" + empleado.getTelefono() + "\t\t" + horas);
+            System.out.println( (i + 1) + "\t" + empleado.getNombre() + "\t\t" + empleado.getPuesto() + "\t\t" + empleado.getTelefono() + "\t\t" + horas);
     }
+        System.out.print("\n");
+        System.out.print("\n");
+        System.out.print("\n");
+        System.out.print("\n");
 }
-
+        
 }
 

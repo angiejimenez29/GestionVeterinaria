@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
-//askjh
+
 public class Administrador {
     private ArrayList<Cliente> clientes;
     private ArrayList<Mascota> mascotas;
@@ -59,12 +59,12 @@ public class Administrador {
 
         while (intentosRestantes > 0) {
             System.out.println(asciiArt);
-            System.out.println("\n\n\t----- Iniciar Sesion -----\n");
+            System.out.println("\n\n\t----- Iniciar Sesion -----");
             System.out.print("\tUsuario: ");
             String usuario = scanner.nextLine();
             System.out.print("\tContrasena: ");
-            String contrasena = scanner.nextLine();
-            System.out.println("\t---------------------------");
+            String contrasena = scanner.nextLine(); 
+            System.out.println("\t--------------------------");
 
             if (iniciarSesionAdmin(usuario, contrasena, scanner)) {
                 break;
@@ -98,7 +98,13 @@ public class Administrador {
 }
   
     private void registrarAdministrador(Scanner scanner){
-        System.out.println("\t------ Registro ------");
+        String asciiArt = """
+ _  __ _____ _____ _  _
+|_)|_ /__ | (_  | |_)/ \\
+| \\|__\\_|_|___) | | \\\\_/
+""";
+
+System.out.println(asciiArt);
         System.out.print("\tUsuario: ");
         String nuevoUsuario = scanner.nextLine();
         if (adminUsuarios.contains(nuevoUsuario)) {
@@ -116,8 +122,15 @@ public class Administrador {
     private void menuAdministrador(Scanner scanner) {
         int opcion;
         do {
-            System.out.println("\n------ Administrador ------");
+            System.out.print("\n");
+            System.out.print("\n");
+            String asciiArt = """
+   _                                     
+  |_| _|__  o __  o  _ _|_ __ _  _| _  __
+  | |(_|||| | | | | _>  |_ | (_|(_|(_) |  """;
 
+System.out.println(asciiArt);
+System.out.print("\n");
             System.out.println("1. Registrar administrador");
             System.out.println("2. Gestionar clientes y mascotas");
             System.out.println("3. Gestionar citas");
@@ -129,8 +142,8 @@ public class Administrador {
             System.out.print("\n--> ");
             opcion = scanner.nextInt();
             scanner.nextLine();
-            System.out.println("\n");
-
+            System.out.print("\n");
+            System.out.print("\n");
             switch (opcion) {
                 case 1:
                     registrarAdministrador(scanner);                    
@@ -164,7 +177,16 @@ public class Administrador {
     private void gestionarClienteYMascota(Scanner scanner) {
         int opcion;
         do {
-            System.out.println("\n--- Gestionar cliente y mascota ---\n");
+            System.out.print("\n");
+            System.out.print("\n");
+            String asciiArt = """
+ _                                                                                  
+(_| _  _ _|_ o  _ __  _  __    _  |  o  _ __ _|_ _     \\/   __  _ __  _  _  _ _|_ _ 
+__|(/__>  |_ | (_)| |(_| |    (_  |  | (/_| | |_(/_    /    |||(_||||_> (_ (_) |_(_|
+""";
+
+System.out.println(asciiArt);
+            System.out.print("\n");
             Cliente.mostrarTablaClientesMascotas();
             System.out.println("-------------------------------------------------------------------------------------------------\n");
             System.out.println("1. Registrar cliente");
@@ -175,8 +197,8 @@ public class Administrador {
             System.out.print("\n--> ");
             opcion = scanner.nextInt();
             scanner.nextLine();
-            System.out.println("\n");
-
+            System.out.print("\n");
+            System.out.print("\n");
             switch (opcion) {
                 case 1:
                     Cliente nuevoCliente = new Cliente();
@@ -203,7 +225,13 @@ public class Administrador {
     private void menuCitas(Scanner scanner) {
         int opcion;
         do {
-            System.out.println("\n--- Citas ---");
+            String asciiArt = """
+     __           
+    /   o _|_ _  _
+    \\__ |  |_(_|_>
+""";
+
+System.out.println(asciiArt);
             System.out.println("1. Agendar cita");
             System.out.println("2. Modificar cita");
             System.out.println("3. Cancelar cita");
