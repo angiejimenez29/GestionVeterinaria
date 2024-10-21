@@ -214,8 +214,114 @@ public class Cita {
     Cita cita = citasFiltradas.get(citaIndex);
     String horaAnterior = cita.hora;  // Guarda la hora anterior
 
-    // Resto del código para editar la cita...
-    // ...
+    // Si el usuario es cliente, omitir la selección del nuevo cliente
+    if (!isAdmin) {
+        // Mostrar las mascotas del cliente actual
+        List<Mascota> mascotas = new ArrayList<>();
+        for (Cliente cliente : Cliente.getClientes()) {
+            if (cliente.getNombre().equals(clienteNombre) && cliente.getApellido().equals(clienteApellido)) {
+                mascotas = cliente.getMascotas();
+                break;
+            }
+        }
+
+        System.out.println("Mascotas de " + clienteNombre + ":");
+        for (int i = 0; i < mascotas.size(); i++) {
+            System.out.println((i + 1) + ". " + mascotas.get(i).getNombreMascota());
+        }
+
+        System.out.print("Seleccione nueva mascota (presione Enter para mantener): ");
+        String nuevoMascotaInput = scanner.nextLine();
+        if (!nuevoMascotaInput.isEmpty()) {
+            int seleccionMascota = Integer.parseInt(nuevoMascotaInput);
+            if (seleccionMascota < 1 || seleccionMascota > mascotas.size()) {
+                System.out.println("Selección no válida.");
+                return;
+            }
+            cita.nombreMascota = mascotas.get(seleccionMascota - 1).getNombreMascota();
+            System.out.println("Mascota modificada exitosamente.");
+        }
+    } else {
+        // Mostrar lista de Clientes solo si es admin
+        System.out.println("Lista de Clientes:");
+        List<Cliente> clientes = Cliente.getClientes();
+        for (int i = 0; i < clientes.size(); i++) {
+            System.out.println((i + 1) + ". " + clientes.get(i).getNombre() + " " + clientes.get(i).getApellido());
+        }
+
+        System.out.print("Seleccione nuevo cliente (presione Enter para mantener): ");
+        String nuevoClienteInput = scanner.nextLine();
+
+        if (!nuevoClienteInput.isEmpty()) {
+            int seleccionCliente = Integer.parseInt(nuevoClienteInput);
+            if (seleccionCliente < 1 || seleccionCliente > clientes.size()) {
+                System.out.println("Selección no válida.");
+                return;
+            }
+
+            Cliente clienteSeleccionado = clientes.get(seleccionCliente - 1);
+            cita.nombreCliente = clienteSeleccionado.getNombre();
+            cita.apellidoCliente = clienteSeleccionado.getApellido();
+            System.out.println("Cliente modificado exitosamente.");
+
+            // Mostrar mascotas del nuevo cliente seleccionado
+            List<Mascota> mascotas = clienteSeleccionado.getMascotas();
+            System.out.println("Mascotas de " + clienteSeleccionado.getNombre() + ":");
+            for (int i = 0; i < mascotas.size(); i++) {
+                System.out.println((i + 1) + ". " + mascotas.get(i).getNombreMascota());
+            }
+
+            System.out.print("Seleccione nueva mascota (presione Enter para mantener): ");
+            String nuevoMascotaInput = scanner.nextLine();
+            if (!nuevoMascotaInput.isEmpty()) {
+                int seleccionMascota = Integer.parseInt(nuevoMascotaInput);
+                if (seleccionMascota < 1 || seleccionMascota > mascotas.size()) {
+                    System.out.println("Selección no válida.");
+                    return;
+                }
+                cita.nombreMascota = mascotas.get(seleccionMascota - 1).getNombreMascota();
+                System.out.println("Mascota modificada exitosamente.");
+            }
+        }
+    }
+
+    // Seleccionar nuevo tipo de cita
+    System.out.println("Seleccione el nuevo tipo de cita (presione Enter para mantener):");
+    System.out.println("1. Estetica");
+    System.out.println("2. Consulta Medica");
+    String nuevoTipoCita = scanner.nextLine();
+
+    if (!nuevoTipoCita.isEmpty()) {
+        switch (nuevoTipoCita) {
+            case "1":
+                cita.tipoCita = "Estetica";
+                break;
+            case "2":
+                cita.tipoCita = "Consulta Medica";
+                break;
+            default:
+                System.out.println("Opción no válida. Manteniendo tipo de cita anterior.");
+                break;
+        }
+    }
+
+    // Seleccionar especialista basado en el tipo de cita
+    if (cita.especialista == null || cita.especialista.isEmpty()) {
+        String nombreEspecialista = seleccionarEspecialista(cita.tipoCita);
+        if (!nombreEspecialista.isEmpty()) {
+            cita.especialista = nombreEspecialista;
+        }
+    } else {
+        System.out.print("Desea mantener al especialista actual " + cita.especialista + "? (Si/No): ");
+        String mantenerEspecialista = scanner.nextLine();
+        
+        if (mantenerEspecialista.equalsIgnoreCase("no")) {
+            String nombreEspecialista = seleccionarEspecialista(cita.tipoCita);
+            if (!nombreEspecialista.isEmpty()) {
+                cita.especialista = nombreEspecialista;
+            }
+        }
+    }
 
     // Seleccionar nueva hora
     if (cita.hora == null || cita.hora.isEmpty()) {
@@ -235,11 +341,18 @@ public class Cita {
                     return;
                 }
 
-                String hora = horasDisponibles.get(seleccionHora - 1);
-                cita.hora = hora;
+                String nuevaHora = horasDisponibles.get(seleccionHora - 1);
+                // Liberar la hora anterior
                 for (Personal p : Personal.getPersonalList()) {
                     if (p.getNombre().equals(cita.especialista)) {
-                        p.eliminarHoraDisponible(hora); // Eliminar hora seleccionada del especialista
+                        p.agregarHoraDisponible(horaAnterior); // Liberar la hora anterior
+                        break;
+                    }
+                }
+                cita.hora = nuevaHora;
+                for (Personal p : Personal.getPersonalList()) {
+                    if (p.getNombre().equals(cita.especialista)) {
+                        p.eliminarHoraDisponible(nuevaHora); // Eliminar la nueva hora seleccionada del especialista
                         break;
                     }
                 }
@@ -282,7 +395,6 @@ public class Cita {
 
     System.out.println("Cita editada exitosamente.");
 }
-
 
     public static void cancelarCita(boolean isAdmin, String clienteNombre, String clienteApellido) {
     // Filtrar las citas si no es admin
