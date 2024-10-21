@@ -140,7 +140,7 @@ public class Administrador {
                     gestionarClienteYMascota(scanner);
                     break;
                 case 3:
-                    menuCitas(scanner);                   
+                    Cita.iniciarMenu(true, "", "");                   
                     break;
                 case 4:
                     menuPersonal(scanner);                   
@@ -169,7 +169,7 @@ public class Administrador {
             Cliente.mostrarTablaClientesMascotas();
             System.out.println("-------------------------------------------------------------------------------------------------\n");
             System.out.println("1. Registrar cliente");
-            System.out.println("2. Registrar citas");
+            System.out.println("2. Registrar mascota");
             System.out.println("3. Historial medico");
             System.out.println("4. Volver");
             System.out.println("--------------------------------------");
