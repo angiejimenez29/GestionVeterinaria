@@ -212,11 +212,9 @@ public class Cita {
     }
 
     Cita cita = citasFiltradas.get(citaIndex);
-    String horaAnterior = cita.hora;  // Guarda la hora anterior
+    String horaAnterior = cita.hora;
 
-    // Si el usuario es cliente, omitir la selección del nuevo cliente
     if (!isAdmin) {
-        // Mostrar las mascotas del cliente actual
         List<Mascota> mascotas = new ArrayList<>();
         for (Cliente cliente : Cliente.getClientes()) {
             if (cliente.getNombre().equals(clienteNombre) && cliente.getApellido().equals(clienteApellido)) {
