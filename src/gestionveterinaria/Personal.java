@@ -52,6 +52,7 @@ public class Personal {
         
         System.out.print("\nTelefono: ");
         String telefono = scanner.nextLine();
+
         String puesto = seleccionarPuesto();
 
         List<String> horasDisponibles = seleccionarHorario(puesto);
