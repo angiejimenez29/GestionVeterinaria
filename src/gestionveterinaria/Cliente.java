@@ -38,7 +38,7 @@ public class Cliente {
 """;
 
 System.out.println(asciiArt);
-            System.out.println("\nBienvenido/a" + nombreCliente + " " + apellidoCliente);
+            System.out.println("\nBienvenido/a " + nombreCliente + " " + apellidoCliente);
             System.out.print("\n");
             System.out.println("1. Historial medico de mis mascotas");
             System.out.println("2. Agendar cita");

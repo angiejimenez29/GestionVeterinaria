@@ -75,26 +75,15 @@ System.out.println(asciiArt);
     String nombreCliente = clienteNombre;
     String apellidoCliente = clienteApellido;
     String nombreMascota = "";
-
-    // Verificar si hay clientes registrados
     if (Cliente.getClientes().isEmpty()) {
         System.out.println("No hay ningún cliente registrado.");
         return; 
     }
 
     if (isAdmin) {
-        // Mostrar la lista de clientes y seleccionar uno
-        System.out.print("\n");
-        System.out.print("\n");
-        String asciiArt = """
-|  o  _ _|_ _     _| _     _  |  o  _ __ _|_ _  _
-|  | _>  |_(_|   (_|(/_   (_  |  | (/_| | |_(/__>
-""";
 
-System.out.println(asciiArt);
         System.out.print("\n");
-        System.out.print("\n");
-        System.out.println("---- Clientes ----");
+        System.out.println("------ Clientes ------");
         List<Cliente> clientes = Cliente.getClientes();
         for (int i = 0; i < clientes.size(); i++) {
             System.out.println((i + 1) + ". " + clientes.get(i).getNombre() + " " + clientes.get(i).getApellido());

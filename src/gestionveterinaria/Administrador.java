@@ -261,9 +261,6 @@ System.out.println(asciiArt);
         } while (opcion != 4);
     }
 
-  public static void main(String[] args) {
-        Administrador administrador = new Administrador();
-        administrador.iniciarPrograma();
-}
+
 
 }
