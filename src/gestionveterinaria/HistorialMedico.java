@@ -16,7 +16,7 @@ public class HistorialMedico {
 
     public void mostrarHistorial() {
     Scanner scanner = new Scanner(System.in);
-    System.out.println("--Historial de " + mascota.getNombreMascota() + "--");
+    System.out.println("\n--Historial de " + mascota.getNombreMascota() + "--");
     System.out.println("Nombre del cliente: " + cliente.getNombre());
     System.out.println("Nombre de la mascota: " + mascota.getNombreMascota());
     System.out.println("Especie: " + mascota.getEspecie());
