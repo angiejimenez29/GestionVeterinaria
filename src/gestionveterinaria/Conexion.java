@@ -7,45 +7,38 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Conexion {
-    String usuario = "upqzp62esxzralwp";
-    String contrasena = "mOVSX56rSYoCM8OA9ijU";
-    String db = "bqsw3lczrwzt3abas1po";
-    String ip = "bqsw3lczrwzt3abas1po-mysql.services.clever-cloud.com";
-    String puerto = "3306";
-    
-    String driver = "com.mysql.cj.jdbc.Driver";
-    String cadena = "jdbc:mysql://" + ip + ":" + puerto + "/" + db;
-    Connection cx;
-    public Conexion(){
-        
+    private final String usuario = "upqzp62esxzralwp";
+    private final String contrasena = "mOVSX56rSYoCM8OA9ijU";
+    private final String db = "bqsw3lczrwzt3abas1po";
+    private final String ip = "bqsw3lczrwzt3abas1po-mysql.services.clever-cloud.com";
+    private final String puerto = "3306";
+    private final String driver = "com.mysql.cj.jdbc.Driver";
+    private final String cadena = "jdbc:mysql://" + ip + ":" + puerto + "/" + db;
+    private Connection cx;
+
+    public Connection conectar() {
+        if (cx == null) {
+            try {
+                Class.forName(driver);
+                cx = DriverManager.getConnection(cadena, usuario, contrasena);
+                System.out.println("Se conectó a la base de datos " + db);
+            } catch (ClassNotFoundException | SQLException ex) {
+                System.err.println("No se pudo conectar a la base de datos " + db);
+                Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return cx;
     }
-    
-    public Connection conectar(){
-        try{
-            Class.forName(driver);
-            cx =DriverManager.getConnection(cadena,usuario,contrasena);
-            System.out.print("Se conecto a BD" +db);
-        } catch (ClassNotFoundException | SQLException ex) {
-            System.out.print("No se conecto a BD" +db);
-            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
-        }return cx;
-    }
-    
-    public void desconectar(){
+
+    public void desconectar() {
         try {
-            cx.close();
+            if (cx != null && !cx.isClosed()) {
+                cx.close();
+                cx=null;
+                System.out.println("Conexión cerrada.");
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public static void main(String[] args){
-        Conexion conexion = new Conexion();
-        conexion.conectar();
-        System.out.println("");
-        Administrador administrador = new Administrador();
-        administrador.iniciarPrograma();
 }
-    }  
-
-
