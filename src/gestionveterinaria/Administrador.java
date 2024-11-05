@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.SwingUtilities;
-import Ventana.login;
+import Ventana.login2;
 
 public class Administrador {
     private ArrayList<Cliente> clientes;
@@ -265,18 +265,9 @@ System.out.println(asciiArt);
     
     public static void main(String[] args) {
         // Abre la conexión a la base de datos
-        Conexion conexion = new Conexion();
-        conexion.conectar(); // Asegúrate de que este método esté definido en la clase Conexion
-        
-        // Muestra la ventana de login en el hilo de eventos de Swing
-        SwingUtilities.invokeLater(() -> {
-            Usuario usuario = new Usuario(conexion);
-            login ventanaLogin = new login(usuario);
-            ventanaLogin.setVisible(true);
-        });
-         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-        conexion.desconectar();
-    }));
-    }
-}
+      login2 ventanaLogin2 = new login2();
+            ventanaLogin2.setVisible(true);
+    }}
+    
+
 
